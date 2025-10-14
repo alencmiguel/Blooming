@@ -1,4 +1,4 @@
-// ====== Utilidades & Persistência ======
+
 const $ = (q, root=document) => root.querySelector(q);
 const $$ = (q, root=document) => [...root.querySelectorAll(q)];
 const store = {
@@ -6,7 +6,7 @@ const store = {
   set(data){ localStorage.setItem('blooming_posts', JSON.stringify(data)); }
 };
 
-// ====== Dados iniciais (seed) ======
+
 const seed = [
   { id: crypto.randomUUID(), title:"Cólica forte no 1º dia, dicas?", category:"Menstruação", content:"No primeiro dia sempre sinto muita cólica. O que ajuda vocês?", tags:["cólica","1º dia"], author:"Luna", ts: Date.now()-86400000, likes:2, hidden:false },
   { id: crypto.randomUUID(), title:"DIU e fluxo: aumenta mesmo?", category:"Saúde hormonal", content:"Coloquei DIU de cobre há 3 meses. Meu fluxo parece maior. É normal?", tags:["DIU","fluxo"], author:"Anônima", ts: Date.now()-43200000, likes:4, hidden:false },
@@ -14,14 +14,14 @@ const seed = [
 ];
 if (store.get().length === 0) store.set(seed);
 
-// ====== Regras simples de segurança/moderação (client-side) ======
+
 const banned = ["http://","https://","telefone","whatsapp","cpf","rg","endereço","assédio","ódio","idiota","burra","tapa","morrer"]; // simples; apenas exemplo
 function failsModeration(text){
   const t = (text||"").toLowerCase();
   return banned.some(w => t.includes(w));
 }
 
-// ====== Renderização de posts ======
+
 function timeAgo(ts){
   const diff = Math.max(1, Math.floor((Date.now()-ts)/1000));
   const units = [[31536000,'ano'],[2592000,'mês'],[604800,'semana'],[86400,'dia'],[3600,'hora'],[60,'minuto'],[1,'segundo']];
@@ -78,7 +78,7 @@ function render(){
 
 function save(){ store.set(store.get()); }
 
-// ====== Eventos ======
+
 $('#search').addEventListener('input', render);
 $('#filterCat').addEventListener('change', render);
 
@@ -105,6 +105,7 @@ $('#postForm').addEventListener('submit', (e)=>{
   location.hash = '#forum';
 });
 
-// Armazena referência do array para editar no lugar
+
 store.set(store.get());
 render();
+
