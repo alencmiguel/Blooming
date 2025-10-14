@@ -63,7 +63,7 @@
 
 <script src="theme.js"></script>
 <script>
-  // ===== helpers & storage =====
+  
   const $  = (q,root=document)=>root.querySelector(q);
   const postsKey = 'blooming_posts';
   const commentsKey = 'blooming_comments';
@@ -84,7 +84,7 @@
     return 'agora';
   };
 
-  // ===== load post =====
+  
   const id = new URLSearchParams(location.search).get('id');
   const posts = postsStore.get();
   const post = posts.find(p=>p.id===id);
@@ -109,7 +109,7 @@
     `;
   }
 
-  // ===== actions =====
+  
   $('#likeBtn')?.addEventListener('click', ()=>{
     post.likes = (post.likes||post.votes||0) + 1;
     const idx = posts.findIndex(p=>p.id===post.id);
@@ -126,7 +126,7 @@
     }
   });
 
-  // ===== comments =====
+  
   function renderComments(){
     const list = commentsStore.list(id).sort((a,b)=>b.ts-a.ts);
     const el = $('#commentsList'); el.innerHTML='';
@@ -153,8 +153,9 @@
     renderComments();
   });
 
-  // se veio com #responder, foca no textarea
+  
   if(location.hash==='#responder'){ setTimeout(()=>$('#cBody')?.focus(), 50); }
 </script>
 </body>
 </html>
+
