@@ -81,7 +81,7 @@
 </main>
 
 <script>
-  // ==== helpers & storage ====
+  
   const $ = (q,root=document)=>root.querySelector(q);
   const postsKey = 'blooming_posts';
   const store = {
@@ -89,7 +89,7 @@
     set(v){ localStorage.setItem(postsKey, JSON.stringify(v)); }
   };
 
-  // ==== seed com 2 exemplos (só se estiver vazio) ====
+  
   if (store.get().length === 0){
     const seed = [
       { id: crypto.randomUUID(), title:"Cólica forte no 1º dia — o que ajuda?", category:"Menstruação",
@@ -102,7 +102,7 @@
     store.set(seed);
   }
 
-  // ==== render ====
+  
   function timeAgo(ts){
     const s=Math.max(1,Math.floor((Date.now()-ts)/1000));
     const u=[[31536000,'ano'],[2592000,'mês'],[604800,'semana'],[86400,'dia'],[3600,'hora'],[60,'minuto'],[1,'segundo']];
@@ -206,7 +206,7 @@
     }
   }
 
-  // ==== eventos ====
+  
   $('#newForm').addEventListener('submit',(e)=>{
     e.preventDefault();
     const author = $('#anonToggle').checked ? 'Anônima' : ($('#nick').value.trim()||'Anônima');
@@ -229,3 +229,4 @@
 </script>
 </body>
 </html>
+
