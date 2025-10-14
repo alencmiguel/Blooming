@@ -1,16 +1,15 @@
-// === CONFIG ===
-// usa 127.0.0.1 para evitar resoluções estranhas de localhost
+t
 const API_BASE =
   (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-    ? 'http://127.0.0.1:3000'   // se mudou a porta, troque aqui (ex.: 4000)
-    : 'https://SEU_BACKEND_EM_PRODUCAO'; // quando publicar
+    ? 'http://127.0.0.1:3000'   
+    : 'https://SEU_BACKEND_EM_PRODUCAO'; 
 
 const API_URL = `${API_BASE}/api/chat`;
 
 
-// === UI minimalista, respeitando seu tema ===
+
 (function () {
-  // injeta HTML do widget
+  
   const wrapper = document.createElement("div");
   wrapper.innerHTML = `
   <div id="blooming-chat-fab" aria-label="Abrir chat">💬</div>
@@ -65,7 +64,7 @@ const API_URL = `${API_BASE}/api/chat`;
         body: JSON.stringify({ message: q })
       });
       const data = await r.json();
-      // remove o "Digitando…"
+      
       const typing = box.querySelector(".bc-bot:last-child");
       if (typing) typing.remove();
       addMsg(data.reply || "…", "bot");
@@ -76,3 +75,4 @@ const API_URL = `${API_BASE}/api/chat`;
     }
   });
 })();
+
