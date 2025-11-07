@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blooming — Onde cada mulher floresce do seu jeito</title>
+  <meta name="description" content="Blooming é um espaço digital seguro e acolhedor para meninas e mulheres cis e trans, onde é possível compartilhar experiências e aprender sobre saúde, corpo e bem-estar.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles-main.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader">
+    <div class="loader-flower"></div>
+  </div>
+
+  <!-- Purple Top Bar with Navigation -->
+  <div class="top-bar">
+    <div class="top-bar-pattern"></div>
+    <nav class="top-nav">
+      <div class="top-nav-links left">
+        <a href="#sobre" class="top-nav-link">Sobre</a>
+        <a href="forum.html" class="top-nav-link">Fórum</a>
+      </div>
+    
+      <div class="logo-center" onclick="animateLogo()"></div>
+      <div class="top-nav-links right">
+        <a href="faq.html" class="top-nav-link">FAQ</a>
+        <a href="artigos.html" class="top-nav-link">Artigos</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Floating Stars -->
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Background Decoration -->
+  <div class="bg-decoration">
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <circle cx="0" cy="-30" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="30" cy="0" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="0" cy="30" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-30" cy="0" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="21" cy="-21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="21" cy="21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-21" cy="21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-21" cy="-21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="0" cy="0" r="10" fill="#FFD700"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <ellipse cx="0" cy="-35" rx="12" ry="25" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="35" cy="0" rx="25" ry="12" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="0" cy="35" rx="12" ry="25" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="-35" cy="0" rx="25" ry="12" fill="#E8D5FF" opacity="0.4"/>
+        <circle cx="0" cy="0" r="12" fill="#7B3FF2" opacity="0.5"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <path d="M0,-40 Q-15,-35 -20,-20 Q-25,-5 -20,10 Q-15,25 0,30 Q15,25 20,10 Q25,-5 20,-20 Q15,-35 0,-40" fill="#F5EDFF" opacity="0.3"/>
+        <path d="M40,0 Q35,-15 20,-20 Q5,-25 -10,-20 Q-25,-15 -30,0 Q-25,15 -10,20 Q5,25 20,20 Q35,15 40,0" fill="#F5EDFF" opacity="0.3"/>
+        <circle cx="0" cy="0" r="8" fill="#5A2BC7" opacity="0.4"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <circle cx="0" cy="-30" r="18" fill="#7B3FF2" opacity="0.2"/>
+        <circle cx="26" cy="-15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="26" cy="15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="0" cy="30" r="18" fill="#7B3FF2" opacity="0.2"/>
+        <circle cx="-26" cy="15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="-26" cy="-15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="0" cy="0" r="15" fill="#FFD700" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="left-content">
+      <h1>
+        <span class="highlight">B</span>looming: onde<br>
+        cada mulher floresce<br>
+        do seu jeito.
+      </h1>
+      
+      <p class="description">
+        "O <strong>Blooming</strong> é um espaço digital seguro e acolhedor para meninas e
+        mulheres cis e trans, onde é possível compartilhar experiências,
+        aprender sobre saúde, corpo e bem-estar, e se apoiar mutuamente em
+        um ambiente anônimo e respeitoso."
+      </p>
+
+      <div class="cta-container">
+        <a href="forum.html" class="btn btn-primary">
+          Abrir fórum
+        </a>
+        <a href="#materiais" class="btn btn-secondary">
+          Ver materiais confiáveis
+        </a>
+      </div>
+
+      <div class="alert">
+        <span class="alert-icon">⚠️</span>
+        <strong>Aviso:</strong> As conversas aqui não substituem
+        avaliação médica. Em emergência ligue SAMU
+        192 (Brasil)
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number" data-count="1500">0</span>
+          <span class="stat-label">Mulheres conectadas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="3200">0</span>
+          <span class="stat-label">Conversas iniciadas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="100">0</span>
+          <span class="stat-label">% Anônimo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-content">
+      <div class="phone-mockup" id="phoneMockup">
+        <div class="phone-screen">
+          <div class="cards-row">
+            <div class="card card-small tooltip" data-tooltip="Clique para explorar" onclick="handleCardClick('Saúde Hormonal')">
+              Saúde<br>Hormonal
+            </div>
+            <div class="card card-small tooltip" data-tooltip="Clique para explorar" onclick="handleCardClick('Bem-Estar')">
+              Bem-Estar
+            </div>
+          </div>
+          <div class="card card-large glow" onclick="openAIChat()">
+            Espaço para a IA
+            <div style="margin-top: 10px; font-size: 14px; color: var(--text-light); font-weight: 400;">
+              Assistente virtual 24/7
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============= CHAT IA BLOOMING ============= -->
+  <style>
+    .ai-chat-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .ai-chat-modal.active {
+      display: flex;
+    }
+
+    .ai-chat-container {
+      background: white;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 600px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .ai-chat-header {
+      background: linear-gradient(135deg, #7B3FF2, #5A2BC7);
+      color: white;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ai-chat-header h3 {
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+    }
+
+    .ai-close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+      line-height: 1;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-close-btn:hover {
+      opacity: 1;
+    }
+
+    .ai-chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: #f8f9fa;
+    }
+
+    .ai-message {
+      padding: 1rem;
+      border-radius: 16px;
+      max-width: 85%;
+      line-height: 1.5;
+      animation: aiSlideIn 0.3s ease-out;
+      word-wrap: break-word;
+    }
+
+    @keyframes aiSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ai-message.bot {
+      background: white;
+      border: 1px solid #e0e0e0;
+      align-self: flex-start;
+    }
+
+    .ai-message.user {
+      background: #7B3FF2;
+      color: white;
+      align-self: flex-end;
+    }
+
+    .ai-message.loading {
+      background: white;
+      border: 1px solid #e0e0e0;
+      align-self: flex-start;
+      display: flex;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+    }
+
+    .ai-typing {
+      display: flex;
+      gap: 4px;
+    }
+
+    .ai-typing-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7B3FF2;
+      animation: aiTyping 1.4s infinite;
+    }
+
+    .ai-typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .ai-typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes aiTyping {
+      0%, 60%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .ai-chat-input-area {
+      padding: 1rem;
+      background: white;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .ai-chat-input {
+      flex: 1;
+      padding: 0.8rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      resize: none;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .ai-chat-input:focus {
+      border-color: #7B3FF2;
+    }
+
+    .ai-send-btn {
+      background: #7B3FF2;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .ai-send-btn:hover:not(:disabled) {
+      background: #5A2BC7;
+      transform: translateY(-2px);
+    }
+
+    .ai-send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .ai-welcome {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+    }
+
+    .ai-welcome h4 {
+      color: #7B3FF2;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+
+  <!-- Modal de Chat da IA -->
+  <div class="ai-chat-modal" id="aiChatModal">
+    <div class="ai-chat-container">
+      <div class="ai-chat-header">
+        <h3>🌸 Assistente Blooming</h3>
+        <button class="ai-close-btn" onclick="closeAIChat()">×</button>
+      </div>
+      
+      <div class="ai-chat-messages" id="aiChatMessages">
+        <div class="ai-welcome">
+          <h4>Olá! 👋</h4>
+          <p>Sou a assistente virtual do Blooming. Posso ajudar com informações sobre saúde feminina, ciclo menstrual, bem-estar e muito mais.</p>
+          <p style="font-size: 0.9rem; margin-top: 1rem;">
+            ⚠️ Lembre-se: não substituo orientação médica profissional.
+          </p>
+        </div>
+      </div>
+      
+      <div class="ai-chat-input-area">
+        <textarea 
+          class="ai-chat-input" 
+          id="aiChatInput" 
+          placeholder="Digite sua pergunta..."
+          rows="1"
+          onkeypress="handleAIKeyPress(event)"
+        ></textarea>
+        <button class="ai-send-btn" id="aiSendBtn" onclick="sendAIMessage()">
+          Enviar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============= CHAT IA BLOOMING =============
+    let aiConversationHistory = [];
+
+    function openAIChat() {
+      document.getElementById('aiChatModal').classList.add('active');
+      document.getElementById('aiChatInput').focus();
+    }
+
+    function closeAIChat() {
+      document.getElementById('aiChatModal').classList.remove('active');
+    }
+
+    function handleAIKeyPress(event) {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendAIMessage();
+      }
+    }
+
+    async function sendAIMessage() {
+      const input = document.getElementById('aiChatInput');
+      const message = input.value.trim();
+      
+      if (!message) return;
+      
+      addAIMessage(message, 'user');
+      input.value = '';
+      
+      const sendBtn = document.getElementById('aiSendBtn');
+      input.disabled = true;
+      sendBtn.disabled = true;
+      
+      const loadingId = addAILoadingMessage();
+      
+      try {
+        const response = await getAIResponse(message);
+        removeAIMessage(loadingId);
+        addAIMessage(response, 'bot');
+      } catch (error) {
+        removeAIMessage(loadingId);
+        addAIMessage('Desculpe, ocorreu um erro. Por favor, tente novamente.', 'bot');
+        console.error('Error:', error);
+      } finally {
+        input.disabled = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    async function getAIResponse(userMessage) {
+      aiConversationHistory.push({
+        role: 'user',
+        content: userMessage
+      });
+
+      const systemPrompt = `Você é uma assistente virtual do Blooming, uma plataforma de saúde feminina. Sua função é:
+
+1. Responder perguntas sobre saúde feminina, ciclo menstrual, anticoncepcionais, TPM, menopausa, bem-estar e temas relacionados
+2. Ser empática, acolhedora e usar linguagem inclusiva
+3. SEMPRE deixar claro que não substitui orientação médica profissional
+4. Sugerir procurar um médico quando a situação for séria
+5. Fornecer informações baseadas em evidências científicas
+6. Respeitar a privacidade e não julgar
+7. Usar emojis com moderação para deixar a conversa mais leve
+8. Ser concisa, mas completa nas respostas
+
+IMPORTANTE:
+- Em emergências, sempre oriente a ligar para SAMU 192
+- Não faça diagnósticos
+- Não prescreva medicamentos
+- Valide os sentimentos e experiências da pessoa`;
+
+      try {
+        const response = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model: "claude-sonnet-4-20250514",
+            max_tokens: 1024,
+            system: systemPrompt,
+            messages: aiConversationHistory
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`API request failed: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const assistantMessage = data.content[0].text;
+
+        aiConversationHistory.push({
+          role: 'assistant',
+          content: assistantMessage
+        });
+
+        return assistantMessage;
+      } catch (error) {
+        console.error('Error calling AI:', error);
+        throw error;
+      }
+    }
+
+    function addAIMessage(text, type) {
+      const messagesDiv = document.getElementById('aiChatMessages');
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `ai-message ${type}`;
+      messageDiv.textContent = text;
+      messagesDiv.appendChild(messageDiv);
+      
+      const welcome = messagesDiv.querySelector('.ai-welcome');
+      if (welcome) {
+        welcome.remove();
+      }
+      
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      
+      return messageDiv;
+    }
+
+    function addAILoadingMessage() {
+      const messagesDiv = document.getElementById('aiChatMessages');
+      const loadingDiv = document.createElement('div');
+      loadingDiv.className = 'ai-message loading';
+      loadingDiv.id = 'ai-loading-' + Date.now();
+      loadingDiv.innerHTML = `
+        <div class="ai-typing">
+          <div class="ai-typing-dot"></div>
+          <div class="ai-typing-dot"></div>
+          <div class="ai-typing-dot"></div>
+        </div>
+      `;
+      messagesDiv.appendChild(loadingDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      return loadingDiv.id;
+    }
+
+    function removeAIMessage(id) {
+      const message = document.getElementById(id);
+      if (message) {
+        message.remove();
+      }
+    }
+
+    document.getElementById('aiChatModal').addEventListener('click', (e) => {
+      if (e.target.id === 'aiChatModal') {
+        closeAIChat();
+      }
+    });
+  </script>
+  <!-- ============= FIM CHAT IA ============= -->
+
+  <script src="script-main.js"></script>
+</body>
+</html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blooming — Saúde feminina em comunidade</title>
+  <meta name="description" content="Blooming é uma plataforma segura e acolhedora para mulheres compartilharem experiências sobre saúde menstrual, hormonal e bem-estar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero{
+      background: linear-gradient(135deg, #c79df0, #6c1ee9);
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 24px;
+      margin: 20px 0;
+    }
+    .hero h1{
+      font-family: 'Quicksand', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: #3a2f38;
+    }
+    .hero p{
+      font-size: 1.2rem;
+      color: #5a4956;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+    .hero-buttons{
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .features{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+    .feature{
+      text-align: center;
+      padding: 24px;
+    }
+    .feature-icon{
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #c79df0, #6c1ee9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+    .stats{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+      text-align: center;
+    }
+    .stat-number{
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .testimonial{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+      font-style: italic;
+    }
+    .testimonial-author{
+      text-align: right;
+      margin-top: 12px;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Bem-vinda ao Blooming 🌸</h1>
+    <p>Um espaço seguro e acolhedor para mulheres compartilharem experiências sobre saúde menstrual, hormonal e bem-estar</p>
+    <div class="hero-buttons">
+      <a href="forum.html" class="btn btn-primary">Acessar o Fórum</a>
+      <a href="#sobre" class="btn btn-secondary">Saiba Mais</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="panel">
+    <div class="hd"><h2>Por que o Blooming?</h2></div>
+    <div class="bd features">
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>Comunidade Acolhedora</h3>
+        <p>Conecte-se com outras mulheres que entendem suas experiências. Compartilhe sem julgamentos.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Privacidade Garantida</h3>
+        <p>Poste anonimamente se preferir. Seus dados ficam apenas no seu navegador.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3>Informação Confiável</h3>
+        <p>Recursos educativos sobre ciclo menstrual, saúde hormonal e autocuidado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="panel" id="sobre">
+    <div class="hd"><h2>Sobre o Blooming</h2></div>
+    <div class="bd">
+      <p>O Blooming nasceu da necessidade de criar um espaço onde mulheres possam conversar abertamente sobre questões de saúde íntima que muitas vezes são tratadas como tabu. Nossa missão é:</p>
+      
+      <ul>
+        <li><strong>Normalizar conversas</strong> sobre menstruação, TPM, anticoncepcionais e outros temas de saúde feminina</li>
+        <li><strong>Criar uma rede de apoio</strong> onde experiências são validadas e acolhidas</li>
+        <li><strong>Compartilhar informações</strong> baseadas em evidências, sempre lembrando que não substituímos orientação médica</li>
+        <li><strong>Empoderar mulheres</strong> através do conhecimento sobre o próprio corpo</li>
+      </ul>
+
+      <div class="notice" style="background: var(--surface); border-left: 4px solid var(--primary); margin: 20px 0;">
+        <strong>⚠️ Importante:</strong> O Blooming é um espaço de troca e apoio, mas não substitui acompanhamento médico. Em caso de sintomas preocupantes ou emergências, procure um serviço de saúde.
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Posts -->
+  <section class="panel">
+    <div class="hd">
+      <h2>Últimas do Fórum</h2>
+    </div>
+    <div class="bd">
+      <div id="postsHome" class="posts">
+        <!-- Populated by home.js -->
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="forum.html" class="btn btn-secondary">Ver todas as publicações →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section class="panel">
+    <div class="hd"><h2>Nossa Comunidade</h2></div>
+    <div class="bd">
+      <div class="stats">
+        <div>
+          <div class="stat-number">100%</div>
+          <p>Anônimo e Seguro</p>
+        </div>
+        <div>
+          <div class="stat-number">24/7</div>
+          <p>Disponível sempre</p>
+        </div>
+        <div>
+          <div class="stat-number">0</div>
+          <p>Julgamentos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="panel">
+    <div class="hd"><h2>O que dizem sobre nós</h2></div>
+    <div class="bd">
+      <div class="testimonial">
+        <p>"Finalmente encontrei um lugar onde posso falar sobre minhas cólicas intensas sem ser julgada. As dicas da comunidade me ajudaram muito!"</p>
+        <div class="testimonial-author">— Anônima, 23 anos</div>
+      </div>
+      <div class="testimonial">
+        <p>"Estava com muitas dúvidas sobre o DIU e aqui encontrei relatos reais de outras mulheres. Me senti mais preparada para conversar com minha ginecologista."</p>
+        <div class="testimonial-author">— Maria, 28 anos</div>
+      </div>
+      <div class="testimonial">
+        <p>"O Blooming me ajudou a entender que TPM severa não é 'frescura'. Aprendi sobre autocuidado e quando buscar ajuda profissional."</p>
+        <div class="testimonial-author">— Anônima, 31 anos</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="panel" style="background: linear-gradient(135deg, #fbe6f1, #a56fe2); text-align: center;">
+    <div class="bd">
+      <h2>Junte-se à nossa comunidade</h2>
+      <p style="font-size: 1.1rem; margin: 16px 0;">Milhares de mulheres já encontraram apoio e informação no Blooming</p>
+      <div class="hero-buttons">
+        <a href="forum.html" class="btn btn-primary">Participar do Fórum</a>
+        <a href="recursos.html" class="btn btn-secondary">Ver Recursos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency -->
+  <section class="panel" style="border: 2px solid #ff5252;">
+    <div class="hd" style="background: #ff5252; color: white;"><h2>Em caso de emergência</h2></div>
+    <div class="bd">
+      <p><strong>Se você está passando por uma emergência médica:</strong></p>
+      <ul>
+        <li>Brasil: Ligue para o <strong>SAMU 192</strong></li>
+        <li>Procure o pronto-socorro mais próximo</li>
+        <li>Em caso de violência: Ligue <strong>180</strong> (Central de Atendimento à Mulher)</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer style="background: var(--surface); padding: 32px 0; margin-top: 48px; border-top: 1px solid var(--border);">
+  <div class="container" style="text-align: center; color: var(--muted);">
+    <p>© 2024 Blooming. Feito com 💜 para a saúde feminina</p>
+    <p style="font-size: 0.9rem; margin-top: 8px;">
+      <a href="faq.html">FAQ</a> • 
+      <a href="recursos.html">Recursos</a> • 
+      <a href="artigos.html">Artigo</a> • 
+      <a href="#sobre">Sobre</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Chat Widget -->
+<link rel="stylesheet" href="chat.css">
+<script src="theme.js"></script>
+<script src="home.js" defer></script>
+<script src="chat.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fórum — Blooming</title>
+  <meta name="description" content="Participe do fórum do Blooming e compartilhe suas experiências com outras mulheres.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles-main.css">
+  <style>
+    body {
+      padding-top: 140px;
+    }
+
+    .forum-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .forum-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .forum-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--primary-purple);
+      margin-bottom: 20px;
+    }
+
+    .forum-header p {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .nova-publicacao-btn {
+      background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(123, 63, 242, 0.3);
+    }
+
+    .nova-publicacao-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(123, 63, 242, 0.4);
+    }
+
+    .categorias {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .categoria-btn {
+      background: white;
+      border: 2px solid var(--light-purple);
+      color: var(--primary-purple);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .categoria-btn:hover,
+    .categoria-btn.active {
+      background: var(--primary-purple);
+      color: white;
+      border-color: var(--primary-purple);
+    }
+
+    .publicacoes {
+      display: grid;
+      gap: 25px;
+    }
+
+    .publicacao-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      border: 2px solid var(--light-purple);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      z-index: 100;
+    }
+
+    .publicacao-card:hover {
+      border-color: var(--primary-purple);
+      box-shadow: 0 10px 30px rgba(123, 63, 242, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .publicacao-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 15px;
+    }
+
+    .publicacao-autor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .autor-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .autor-info h3 {
+      font-size: 16px;
+      color: var(--text-dark);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .autor-info p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .publicacao-categoria {
+      background: var(--lighter-purple);
+      color: var(--primary-purple);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .publicacao-titulo {
+      font-size: 22px;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .publicacao-preview {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .publicacao-footer {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px solid var(--light-purple);
+    }
+
+    .footer-stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .footer-stat span {
+      color: var(--primary-purple);
+      font-weight: 600;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-light);
+    }
+
+    .empty-state-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    .empty-state h2 {
+      font-size: 28px;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+    }
+
+    .aviso-box {
+      background: linear-gradient(135deg, var(--lighter-purple), white);
+      border-left: 4px solid var(--primary-purple);
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .aviso-box strong {
+      color: var(--primary-purple);
+    }
+
+    @media (max-width: 768px) {
+      .categorias {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+      }
+
+      .publicacao-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader">
+    <div class="loader-flower"></div>
+  </div>
+
+  <!-- Purple Top Bar with Navigation -->
+  <div class="top-bar">
+    <div class="top-bar-pattern"></div>
+    <nav class="top-nav">
+      <div class="top-nav-links left">
+        <a href="sobre.html" class="top-nav-link">Sobre</a>
+        <a href="forum.html" class="top-nav-link">Fórum</a>
+      </div>
+      <div class="logo-center" onclick="window.location.href='index.html'"></div>
+      <div class="top-nav-links right">
+        <a href="faq.html" class="top-nav-link">FAQ</a>
+        <a href="artigos.html" class="top-nav-link">Artigos</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Floating Stars -->
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Background Decoration -->
+  <div class="bg-decoration">
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <circle cx="0" cy="-30" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="30" cy="0" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="0" cy="30" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-30" cy="0" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="21" cy="-21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="21" cy="21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-21" cy="21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-21" cy="-21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="0" cy="0" r="10" fill="#FFD700"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <ellipse cx="0" cy="-35" rx="12" ry="25" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="35" cy="0" rx="25" ry="12" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="0" cy="35" rx="12" ry="25" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="-35" cy="0" rx="25" ry="12" fill="#E8D5FF" opacity="0.4"/>
+        <circle cx="0" cy="0" r="12" fill="#7B3FF2" opacity="0.5"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <path d="M0,-40 Q-15,-35 -20,-20 Q-25,-5 -20,10 Q-15,25 0,30 Q15,25 20,10 Q25,-5 20,-20 Q15,-35 0,-40" fill="#F5EDFF" opacity="0.3"/>
+        <path d="M40,0 Q35,-15 20,-20 Q5,-25 -10,-20 Q-25,-15 -30,0 Q-25,15 -10,20 Q5,25 20,20 Q35,15 40,0" fill="#F5EDFF" opacity="0.3"/>
+        <circle cx="0" cy="0" r="8" fill="#5A2BC7" opacity="0.4"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <circle cx="0" cy="-30" r="18" fill="#7B3FF2" opacity="0.2"/>
+        <circle cx="26" cy="-15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="26" cy="15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="0" cy="30" r="18" fill="#7B3FF2" opacity="0.2"/>
+        <circle cx="-26" cy="15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="-26" cy="-15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="0" cy="0" r="15" fill="#FFD700" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Main Content -->
+  <div class="forum-container">
+    <div class="forum-header">
+      <h1>💬 Fórum da Comunidade</h1>
+      <p>Compartilhe suas experiências, dúvidas e apoie outras mulheres em um espaço seguro e acolhedor</p>
+      <button class="nova-publicacao-btn" onclick="alert('Funcionalidade em desenvolvimento! 🌸')">
+        + Nova Publicação
+      </button>
+    </div>
+
+    <div class="aviso-box">
+      <strong>⚠️ Lembre-se:</strong> Este é um espaço de apoio mútuo, não substitui consulta médica. Em emergências, ligue SAMU 192 ou Central da Mulher 180.
+    </div>
+
+    <div class="categorias">
+      <button class="categoria-btn active">Todas</button>
+      <button class="categoria-btn">Menstruação</button>
+      <button class="categoria-btn">Saúde Hormonal</button>
+      <button class="categoria-btn">Bem-Estar</button>
+      <button class="categoria-btn">Relacionamentos</button>
+      <button class="categoria-btn">Sexualidade</button>
+      <button class="categoria-btn">Anticoncepcionais</button>
+    </div>
+
+    <div class="publicacoes">
+      <!-- Exemplo de publicação 1 -->
+      <div class="publicacao-card">
+        <div class="publicacao-header">
+          <div class="publicacao-autor">
+            <div class="autor-avatar">🌸</div>
+            <div class="autor-info">
+              <h3>Anônima</h3>
+              <p>há 2 horas</p>
+            </div>
+          </div>
+          <span class="publicacao-categoria">Menstruação</span>
+        </div>
+        <h2 class="publicacao-titulo">Alguém mais tem cólicas intensas?</h2>
+        <p class="publicacao-preview">
+          Estou tendo cólicas muito fortes nos últimos meses e gostaria de saber se é normal e o que vocês fazem para aliviar...
+        </p>
+        <div class="publicacao-footer">
+          <div class="footer-stat">
+            💬 <span>23</span> respostas
+          </div>
+          <div class="footer-stat">
+            ❤️ <span>45</span> apoios
+          </div>
+        </div>
+      </div>
+
+      <!-- Exemplo de publicação 2 -->
+      <div class="publicacao-card">
+        <div class="publicacao-header">
+          <div class="publicacao-autor">
+            <div class="autor-avatar">💜</div>
+            <div class="autor-info">
+              <h3>Maria, 25 anos</h3>
+              <p>há 5 horas</p>
+            </div>
+          </div>
+          <span class="publicacao-categoria">Anticoncepcionais</span>
+        </div>
+        <h2 class="publicacao-titulo">Experiência com DIU de cobre</h2>
+        <p class="publicacao-preview">
+          Coloquei o DIU de cobre há 3 meses e queria compartilhar minha experiência com vocês. No início...
+        </p>
+        <div class="publicacao-footer">
+          <div class="footer-stat">
+            💬 <span>67</span> respostas
+          </div>
+          <div class="footer-stat">
+            ❤️ <span>89</span> apoios
+          </div>
+        </div>
+      </div>
+
+      <!-- Exemplo de publicação 3 -->
+      <div class="publicacao-card">
+        <div class="publicacao-header">
+          <div class="publicacao-autor">
+            <div class="autor-avatar">🌺</div>
+            <div class="autor-info">
+              <h3>Ana</h3>
+              <p>ontem</p>
+            </div>
+          </div>
+          <span class="publicacao-categoria">Bem-Estar</span>
+        </div>
+        <h2 class="publicacao-titulo">Como lidar com TPM severa?</h2>
+        <p class="publicacao-preview">
+          A cada ciclo minha TPM está piorando - mudanças de humor, ansiedade, irritabilidade. Alguém passa por isso?
+        </p>
+        <div class="publicacao-footer">
+          <div class="footer-stat">
+            💬 <span>34</span> respostas
+          </div>
+          <div class="footer-stat">
+            ❤️ <span>56</span> apoios
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script-main.js"></script>
+  <script>
+    // Script básico para alternar categorias
+    document.querySelectorAll('.categoria-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
+

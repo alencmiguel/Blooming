@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Artigos Científicos — Blooming</title>
+<meta content="Artigos científicos sobre saúde feminina, psicologia e bem-estar escritos por profissionais especializadas." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="styles-main.css" rel="stylesheet"/>
+<style>
+    body {
+      padding-top: 140px;
+    }
+
+    .artigos-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .artigos-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .artigos-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--primary-purple);
+      margin-bottom: 20px;
+    }
+
+    .artigos-header p {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .artigo-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(123, 63, 242, 0.1);
+      border: 2px solid var(--light-purple);
+      transition: all 0.3s ease;
+    }
+
+    .artigo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(123, 63, 242, 0.2);
+      border-color: var(--primary-purple);
+    }
+
+    .artigo-header-card {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .autor-foto {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-purple);
+    }
+
+    .autor-info h2 {
+      font-size: 24px;
+      color: var(--primary-purple);
+      margin-bottom: 5px;
+    }
+
+    .autor-info p {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .autor-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .autor-links a {
+      color: var(--primary-purple);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .autor-links a:hover {
+      color: var(--dark-purple);
+      text-decoration: underline;
+    }
+
+    .artigo-titulo {
+      font-size: 28px;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .artigo-conteudo {
+      color: var(--text-dark);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .artigo-conteudo h3 {
+      color: var(--primary-purple);
+      font-size: 20px;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .artigo-conteudo p {
+      margin-bottom: 15px;
+    }
+
+    .artigo-conteudo strong {
+      color: var(--primary-purple);
+      font-weight: 600;
+    }
+
+    .artigo-fontes {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px solid var(--light-purple);
+    }
+
+    .artigo-fontes h4 {
+      color: var(--primary-purple);
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .artigo-fontes a {
+      color: var(--primary-purple);
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 5px;
+      word-break: break-all;
+    }
+
+    .artigo-fontes a:hover {
+      text-decoration: underline;
+    }
+
+    .artigo-imagem {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+      margin: 25px auto;
+      display: block;
+      box-shadow: 0 8px 20px rgba(123, 63, 242, 0.15);
+    }
+
+    .artigo-imagem-legenda {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 8px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .artigo-card {
+        padding: 25px;
+      }
+
+      .artigo-header-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .autor-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Loading Screen -->
+<div class="loader">
+<div class="loader-flower"></div>
+</div>
+<!-- Purple Top Bar with Navigation -->
+<div class="top-bar">
+<div class="top-bar-pattern"></div>
+<nav class="top-nav">
+<div class="top-nav-links left">
+<a class="top-nav-link" href="index.html#sobre">Sobre</a>
+<a class="top-nav-link" href="forum.html">Fórum</a>
+</div>
+<div class="logo-center" onclick="window.location.href='index.html'"></div>
+<div class="top-nav-links right">
+<a class="top-nav-link" href="faq.html">FAQ</a>
+<a class="top-nav-link" href="artigos.html">Artigos</a>
+</div>
+</nav>
+</div>
+<!-- Floating Stars -->
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<div class="floating-star"></div>
+<!-- Custom Cursor -->
+<div class="custom-cursor" id="cursor"></div>
+<!-- Background Decoration -->
+<div class="bg-decoration">
+<svg class="flower-pattern" viewbox="0 0 200 200">
+<g transform="translate(100, 100)">
+<circle cx="0" cy="-30" fill="#7B3FF2" opacity="0.3" r="15"></circle>
+<circle cx="30" cy="0" fill="#7B3FF2" opacity="0.3" r="15"></circle>
+<circle cx="0" cy="30" fill="#7B3FF2" opacity="0.3" r="15"></circle>
+<circle cx="-30" cy="0" fill="#7B3FF2" opacity="0.3" r="15"></circle>
+<circle cx="21" cy="-21" fill="#7B3FF2" opacity="0.3" r="12"></circle>
+<circle cx="21" cy="21" fill="#7B3FF2" opacity="0.3" r="12"></circle>
+<circle cx="-21" cy="21" fill="#7B3FF2" opacity="0.3" r="12"></circle>
+<circle cx="-21" cy="-21" fill="#7B3FF2" opacity="0.3" r="12"></circle>
+<circle cx="0" cy="0" fill="#FFD700" r="10"></circle>
+</g>
+</svg>
+<svg class="flower-pattern" viewbox="0 0 200 200">
+<g transform="translate(100, 100)">
+<ellipse cx="0" cy="-35" fill="#E8D5FF" opacity="0.4" rx="12" ry="25"></ellipse>
+<ellipse cx="35" cy="0" fill="#E8D5FF" opacity="0.4" rx="25" ry="12"></ellipse>
+<ellipse cx="0" cy="35" fill="#E8D5FF" opacity="0.4" rx="12" ry="25"></ellipse>
+<ellipse cx="-35" cy="0" fill="#E8D5FF" opacity="0.4" rx="25" ry="12"></ellipse>
+<circle cx="0" cy="0" fill="#7B3FF2" opacity="0.5" r="12"></circle>
+</g>
+</svg>
+<svg class="flower-pattern" viewbox="0 0 200 200">
+<g transform="translate(100, 100)">
+<path d="M0,-40 Q-15,-35 -20,-20 Q-25,-5 -20,10 Q-15,25 0,30 Q15,25 20,10 Q25,-5 20,-20 Q15,-35 0,-40" fill="#F5EDFF" opacity="0.3"></path>
+<path d="M40,0 Q35,-15 20,-20 Q5,-25 -10,-20 Q-25,-15 -30,0 Q-25,15 -10,20 Q5,25 20,20 Q35,15 40,0" fill="#F5EDFF" opacity="0.3"></path>
+<circle cx="0" cy="0" fill="#5A2BC7" opacity="0.4" r="8"></circle>
+</g>
+</svg>
+<svg class="flower-pattern" viewbox="0 0 200 200">
+<g transform="translate(100, 100)">
+<circle cx="0" cy="-30" fill="#7B3FF2" opacity="0.2" r="18"></circle>
+<circle cx="26" cy="-15" fill="#E8D5FF" opacity="0.3" r="15"></circle>
+<circle cx="26" cy="15" fill="#E8D5FF" opacity="0.3" r="15"></circle>
+<circle cx="0" cy="30" fill="#7B3FF2" opacity="0.2" r="18"></circle>
+<circle cx="-26" cy="15" fill="#E8D5FF" opacity="0.3" r="15"></circle>
+<circle cx="-26" cy="-15" fill="#E8D5FF" opacity="0.3" r="15"></circle>
+<circle cx="0" cy="0" fill="#FFD700" opacity="0.4" r="15"></circle>
+</g>
+</svg>
+</div>
+<!-- Main Content -->
+<div class="artigos-container">
+<div class="artigos-header">
+<h1>📚 Artigos Científicos</h1>
+<p>Conteúdos escritos por profissionais especializadas sobre saúde feminina, psicologia e bem-estar.</p>
+</div>
+<!-- Artigo 1 - Fernanda -->
+<article class="artigo-card">
+<div class="artigo-header-card">
+<div class="autor-info">
+<h2>Fernanda Matouk Ribeiro</h2>
+<p>Psicóloga CRP 05/83991 | Administradora | TCC</p>
+<div class="autor-links">
+<a href="https://www.linkedin.com/in/fernandamatouk/" target="_blank">LinkedIn</a>
+<a href="https://www.instagram.com/psi.fernandamatouk/" target="_blank">Instagram</a>
+</div>
+</div>
+</div>
+<h3 class="artigo-titulo">Primeiros Relacionamentos e os Autolimites Emocionais</h3>
+<div class="artigo-conteudo">
+<p>A forma como construímos nossas emoções e entendemos os vínculos afetivos tem raízes profundas nas experiências da infância. Este artigo explora como os padrões de relacionamento aprendidos nos primeiros anos de vida podem influenciar a percepção de amor e dor na vida adulta, destacando a importância do autoconhecimento para a definição de limites saudáveis e a ruptura do ciclo da violência.</p>
+<h3>A Origem dos Padrões Emocionais: Amor, Dor e o Ciclo da Violência</h3>
+<p>O processo de formação dos padrões emocionais que carregamos ao longo da vida advém das experiências que vivenciamos. Imagine que passamos por uma situação e, dependendo da forma como a interpretamos, podemos entendê-la como uma possível fonte de amor, ainda que de maneira distorcida.</p>
+<p>Vamos pensar no seguinte exemplo: durante toda a infância, Fabi foi uma criança que recebia muitas palmadas dos pais sempre que não estudava, não arrumava o quarto ou desobedecia. Os pais de Fabi diziam que batiam nela porque a amavam e queriam o melhor para ela. Assim, Fabi aprendeu que o amor, de certa forma, vem acompanhado da dor, seja ela física ou psicológica. Os gritos, as broncas e as punições passaram a ser compreendidos por ela como expressões de afeto.</p>
+<p>Fabi, então, absorveu esse padrão e passou a reproduzi-lo em seus relacionamentos, sejam eles amorosos, familiares ou de amizade. Em seu repertório emocional, ela entende que é assim que se demonstra amor. Por isso, tem dificuldade em reconhecer quando uma relação é abusiva, já que, para ela, o amor se manifesta por meio da violência, seja ela física ou psicológica. Desse modo, as primeiras experiências afetivas são fundamentais para o desenvolvimento cognitivo e comportamental saudável de uma pessoa, seja ela vítima ou agressora. Afinal, quem agride, muitas vezes, também aprendeu a se relacionar a partir da dor e da violência.</p>
+<h3>Autoconhecimento e a Ruptura do Padrão: Impondo Limites</h3>
+<p>Mas sempre existe a possibilidade de conhecermos novas realidades e novas formas de ser e estar no mundo. Talvez Fabi tenha assistido a um filme, lido um livro ou conhecido pessoas que demonstram o amor de maneira diferente, pessoas que conseguiram interromper esse ciclo. Esses encontros podem despertar nela o desejo de compreender melhor o que entende por amor, quais são seus verdadeiros gostos e, principalmente, quais são seus limites nas relações.</p>
+<p>O autoconhecimento oferece ferramentas valiosas para aprendermos a mostrar aos outros até onde podem ir, e também para reconhecermos nossos próprios gatilhos, pontos de atenção e formas de querer ser amados(as). Já os sinais emocionais de que uma relação pode estar se tornando abusiva surgem por meio do autoconhecimento e da auto-observação de quem vive o abuso, ou de pessoas próximas que percebem mudanças de comportamento. Alguém que antes apresentava boa qualidade de vida pode, após vivenciar uma situação de violência, demonstrar baixa autoestima, culpa, vergonha e outros sinais de sofrimento emocional.</p>
+<h3>Violência de Gênero e o Caminho para Relações de Respeito</h3>
+<p>A Cartilha de Referências Técnicas para Atuação de Psicólogas(as) no Atendimento às Mulheres em Situação de Violência traz uma reflexão importante:</p>
+<p><em>"Assim, compreendemos as situações de violência como expressões das relações desiguais de gênero que atravessam a experiência das mulheres, embora, para os operadores jurídicos, os tipificadores de violências (ex.: física, psicológica, patrimonial) sejam considerados, em certa medida, como institutos distintos e cartesianos."</em></p>
+<p>A violência contra a mulher está profundamente enraizada em nossa estrutura social, sendo reflexo das desigualdades de poder entre homens e mulheres, em que o gênero masculino historicamente ocupa posição de dominação sobre o feminino.</p>
+<p>Essas desigualdades aparecem no cotidiano das mulheres, desde pequenas desvalorizações até formas mais graves de violência, e podem se manifestar não apenas em relacionamentos afetivos, mas também em vínculos familiares, sociais e profissionais.</p>
+<p>Saber impor limites aos filhos, oferecer suporte emocional, escuta ativa e, acima de tudo, presença genuína em sua rotina contribui para a construção de relações baseadas na liberdade, na reciprocidade e no respeito.</p>
+<p>Em suma, a trajetória emocional de um indivíduo é determinada pela qualidade de seus primeiros vínculos afetivos. O resgate da autonomia e a construção de relações baseadas no respeito mútuo são possíveis através do autoconhecimento e da coragem de romper padrões herdados. O desafio social reside em fomentar, desde a infância, ambientes que ensinem que o amor é sinônimo de liberdade e dignidade, e não de violência ou dominação.</p>
+<div class="artigo-fontes">
+<h4>FONTES:</h4>
+<a href="https://site.cfp.org.br/wp-content/uploads/2024/11/RT_Mulheres_web.pdf" target="_blank">https://site.cfp.org.br/wp-content/uploads/2024/11/RT_Mulheres_web.pdf</a>
+</div>
+</div>
+</article>
+<!-- Artigo 2 - Rossana -->
+<article class="artigo-card">
+<div class="artigo-header-card">
+<div class="autor-info">
+<h2>Rossana da Silva Santos</h2>
+<p>Psicóloga CRP 05/83020 | Formada em Direito</p>
+<div class="autor-links">
+<a href="https://www.instagram.com/rossan_santosssilva" target="_blank">Instagram</a>
+</div>
+</div>
+</div>
+<h3 class="artigo-titulo">Machismo e Estereótipos: Como Afetam o Desenvolvimento Psicológico das Meninas</h3>
+<div class="artigo-conteudo">
+<p>Diante de um tema tão crucial, torna-se urgente a nossa reflexão: você sabe o que é machismo? Quais são as suas formas e como ele molda a vida das meninas desde a infância?</p>
+<p>Vamos descobrir isso juntos, analisando o conceito, seus impactos estruturais e a alarmante realidade da violência de gênero.</p>
+<h3>O Que é Machismo e Como Ele se Estrutura?</h3>
+<p>O Machismo é um preconceito que favorece o gênero masculino, fundamentado na crença da superioridade do homem. No entanto, o problema se aprofunda quando falamos de <strong>Machismo Estrutural</strong>.</p>
+<p><strong>Machismo Estrutural:</strong> São ideias que se moldam e se enraízam em valores, refletindo nas relações de poder da sociedade e, de alguma forma, imprimindo regras de comportamento para o feminino.</p>
+<p>Esse comportamento é intrínseco ao sistema social em que vivemos. Historicamente, a nossa sociedade se estruturou sob a dominação masculina, disseminando a ideia de autoridade masculina como norma.</p>
+<img alt="Representação visual de violência doméstica" class="artigo-imagem" src="foto machsimo soco.webp"/>
+<h3>O Impacto no Desenvolvimento Psicológico das Meninas</h3>
+<p>Essa estrutura social opressora impõe estereótipos de gênero rígidos que limitam o potencial e o desenvolvimento psicológico das meninas. Desde cedo, mensagens sutis e explícitas definem o que é "ser menina": ser delicada, submissa, evitar certas áreas do conhecimento ou profissões, e ter a sua voz e opiniões diminuídas.</p>
+<p>O medo, a insegurança, a baixa autoestima e a limitação de ambições podem ser consequências diretas de crescer em um ambiente que constantemente desvaloriza o feminino e supervaloriza o masculino. A pressão para se adequar a essas "regras de comportamento" pode gerar profundo sofrimento e impedir o desenvolvimento pleno da identidade.</p>
+<h3>Os Desdobramentos: Da Desigualdade à Violência</h3>
+<p>O machismo estrutural tem desdobramentos graves na vida adulta das mulheres, sendo a limitação de oportunidades de emprego e a desigualdade salarial as mais evidentes.</p>
+<img alt="Protesto por igualdade salarial - Trabalho igual, salário igual" class="artigo-imagem" src="protesto trabalho igual salario igual.jpg"/>
+<p>Contudo, talvez uma das consequências mais pertinentes e devastadoras seja a reprodução da violência.</p>
+<p>Em uma busca simples, encontramos dados que revelam a urgência dessa situação:</p>
+<ul>
+<li>Em 2024, o Brasil registrou 1.459 feminicídios, um aumento de 0,69% em relação a 2023.</li>
+<li>A média diária de feminicídios em 2025 é de aproximadamente 4 mulheres assassinadas por dia.</li>
+<li>Em 2024, ao menos uma mulher foi vítima de feminicídio a cada 17 horas.</li>
+</ul>
+<p>Portanto, quando encontramos dados onde se pergunta se a mulher se sente segura para discutir temas íntimos na internet, não há de se estranhar que 84% delas digam que não. Esse comportamento social oprime, intimida e, pior, naturaliza a violência contra a mulher.</p>
+<img alt="Protesto contra violência - Seu machismo mata" class="artigo-imagem" src="protesto seu machismo mata.jpg"/>
+<h3>Rumo à Igualdade: O Caminho da Conscientização</h3>
+<p>Para romper esse ciclo, necessitamos promover mudanças profundas e implementar políticas eficazes de promoção à igualdade de gênero e de proteção efetiva às vítimas de violência.</p>
+<p>É fundamental que haja conscientização para transformar as normas sociais e a concepção cultural sobre a violência contra as mulheres. É inaceitável que o medo e a opressão sejam normalizados.</p>
+<p>Lembremo-nos do que diz o <strong>Artigo 5º da CONSTITUIÇÃO FEDERAL:</strong></p>
+<p><em>Todos são iguais perante a lei, independentemente de raça, cor, SEXO, idade ou origem.</em></p>
+<p>É um direito constitucional viver em uma sociedade plena e justa para todos os cidadãos. É fundamental que esses comportamentos sejam revistos e mudados para que as meninas de hoje possam crescer sem as amarras psicológicas dos estereótipos e do machismo.</p>
+<div class="artigo-fontes">
+<h4>FONTES:</h4>
+<a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm" target="_blank">https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm</a>
+<a href="https://www.ipea.gov.br/atlasviolencia/publicacoes" target="_blank">https://www.ipea.gov.br/atlasviolencia/publicacoes</a>
+<a href="https://forumseguranca.org.br/wp-content/uploads/2025/07/anuario-2025.pdf" target="_blank">https://forumseguranca.org.br/wp-content/uploads/2025/07/anuario-2025.pdf</a>
+<a href="https://www.gov.br/mulheres/pt-br/central-de-conteudos/publicacoes/raseam-2025.pdf/view" target="_blank">https://www.gov.br/mulheres/pt-br/central-de-conteudos/publicacoes/raseam-2025.pdf/view</a>
+</div>
+</div>
+</article>
+<!-- Artigo 3 - Jéssica -->
+<!-- Artigo 3 - Jéssica -->
+<article class="artigo-card">
+<div class="artigo-header-card">
+<div class="autor-info">
+<h2>Jéssica Souza</h2>
+<p>Psicóloga CRP 05/68114 | Especialista em Desenvolvimento Humano</p>
+<div class="autor-links">
+<a href="https://www.instagram.com/psi.jessicasouzaa" target="_blank">Instagram</a>
+<a href="https://www.linkedin.com/feed/" target="_blank">LinkedIn</a>
+</div>
+</div>
+</div>
+
+<h3 class="artigo-titulo">Sexualidade, Identidade e Autopercepção: Um Caminho para Descobrir a Si Mesma</h3>
+
+<div class="artigo-conteudo">
+<p>A adolescência é um território intenso de descobertas, contradições, construção de identidade e questionamentos internos que nem sempre conseguimos nomear. É um período em que começamos a nos olhar com outros olhos: percebemos o corpo mudando, sentimos emoções com mais profundidade, e muitas vezes buscamos nos encaixar em expectativas sociais e padrões que nem escolhemos conscientemente.</p>
+
+<p>Compreender a própria sexualidade nessa fase não é apenas sobre entender o corpo; é, sobretudo, sobre significado. É sobre perceber que sexualidade não é apenas ato, mas presença, energia, afeto, identidade, relação com o próprio desejo e com o direito de existir no mundo com autenticidade e respeito.</p>
+
+<p>É exatamente sobre esse universo delicado, potente e muitas vezes silenciado que este artigo se propõe a conversar.</p>
+
+<img src="mulher com autoestima baixa.jpg" alt="Mulher refletindo sobre autoestima" class="artigo-imagem">
+
+<h3>O Significado de Vivenciar a Sexualidade na Adolescência</h3>
+
+<p>Quando passamos pela adolescência, é comum que a sexualidade desperte não apenas como curiosidade corporal, mas como convite de autoconhecimento — uma busca silenciosa por entender quem somos além do que os outros esperam de nós. Não é apenas uma fase hormonal; é um período de perguntas internas, tais como:</p>
+
+<ul>
+<li>"O que eu realmente sinto?"</li>
+<li>"Do que eu gosto?"</li>
+<li>"O que faz sentido para mim, e não apenas para agradar alguém?"</li>
+<li>"Meu corpo é um lugar seguro ou um espaço de julgamento?"</li>
+</ul>
+
+<p>Vivenciar a sexualidade, nesse sentido, é mais emocional do que físico. É observar como me sinto em relação a mim mesma, ao meu corpo, aos meus limites, e não apenas o que "deveria" acontecer. A sexualidade saudável na adolescência nasce quando não há pressa, nem pressão, mas liberdade com responsabilidade, acolhimento do próprio tempo, e respeito ao próprio corpo como lugar de dignidade.</p>
+
+<h3>Influências na Construção da Sexualidade</h3>
+
+<p>Nenhuma garota constrói sua percepção de si mesma sozinha; somos atravessadas o tempo inteiro por mensagens do ambiente.</p>
+
+<p><strong>Fatores Emocionais:</strong> A forma como fomos cuidadas, a qualidade do vínculo com quem nos educou, a presença ou ausência de diálogo em casa — tudo influencia diretamente na maneira como percebemos nosso corpo:</p>
+
+<ul>
+<li>Quem cresceu com carinho, escuta e validação, tende a viver a sexualidade com menos culpa e medo.</li>
+<li>Quem cresceu com críticas, controle ou silenciamento, tende a viver com insegurança, vergonha ou excessiva autovigilância.</li>
+</ul>
+
+<p><strong>Fatores Sociais e Culturais:</strong> A sociedade ainda impõe à mulher padrões opostos: "se for livre demais, será julgada; se for recatada demais, será invisível". Isso gera um conflito interno permanente, como se nenhuma escolha fosse realmente segura. Família, escola, religião, redes sociais — todas essas vozes moldam a identidade sexual antes mesmo que possamos escolher conscientemente o que acreditamos. Por isso, muitas adolescentes vivem a sexualidade mais com medo de errar do que com liberdade de sentir.</p>
+
+<h3>O Poder do Autoconhecimento e do Diálogo Aberto</h3>
+
+<p>Quando uma adolescente tem espaço para conversar sem ser julgada, algo profundamente transformador acontece: ela deixa de viver para evitar erros e começa a viver para se conhecer com verdade.</p>
+
+<p>Autoconhecimento não é apenas "pensar sobre si", é sentir-se com honestidade. É fazer perguntas como:</p>
+
+<ul>
+<li>"O que me faz sentir paz?"</li>
+<li>"Quais são meus limites?"</li>
+<li>"Eu escolho ou estou sendo escolhida?"</li>
+<li>"Meu corpo é meu, ou eu aprendi a entregá-lo para ser aceita?"</li>
+</ul>
+
+<p>O diálogo com adultos de confiança, com profissionais, com outras mulheres reais dissolve o silêncio e a culpa, e abre caminhos de segurança emocional. Quando entendemos que sexualidade não é algo que se faz, mas algo que se habita, a autoestima se fortalece. E a adolescência, mesmo com todos os desafios, se torna um processo de florescimento, e não de medo.</p>
+
+<img src="mulher negra se amando.jpg" alt="Mulher em processo de autoconhecimento" class="artigo-imagem">
+
+<p>Portanto, sexualidade, na adolescência (e ao longo da vida), é um processo de reconhecer-se como sujeito do próprio corpo, do próprio desejo e da própria história. Não é sobre pressa, desempenho ou validação externa; é sobre viver com consciência, com respeito, com verdade.</p>
+
+<p>É sobre perceber que autoconhecimento é a forma mais profunda de liberdade — não a liberdade que impressiona os outros, mas a liberdade de sentir-se inteira dentro de si mesma. Quando ampliamos o diálogo e rompemos com a cultura do silêncio, abrimos espaço para que cada menina e mulher deixe de pedir permissão para existir e comece a habitar sua própria voz. Porque a sexualidade não é apenas um capítulo da vida; é a assinatura silenciosa de quem estamos nos tornando.</p>
+
+</div>
+</article>
+
+<!-- Artigo 4 - Mulheres que Inspiram -->
+<article class="artigo-card">
+<div class="artigo-header-card">
+<div class="autor-info">
+<h2>Equipe Blooming</h2>
+<p>Conteúdo Editorial</p>
+</div>
+</div>
+
+<h3 class="artigo-titulo">Mulheres que Mudaram a História: Inspiração para Novas Gerações</h3>
+
+<div class="artigo-conteudo">
+<p>As mulheres sempre foram agentes cruciais de transformação social, científica, artística e política — muitas vezes invisibilizadas pela história oficial. Conhecer suas trajetórias é reconhecer como coragem, criatividade e resistência remodelam sociedades. Estes perfis mostram diversidade de épocas e áreas, lembrando que meninas e jovens de hoje têm exemplos reais que provam: mudar o mundo é possível.</p>
+
+<h3>Malala Yousafzai (Paquistão) — Ativista pela Educação</h3>
+<img src="malala.jpeg" alt="Malala Yousafzai" class="artigo-imagem">
+<p>Nascida no Vale do Swat, no Paquistão, Malala cresceu em meio ao avanço do regime Talibã, que proibia meninas de frequentarem a escola. Desde muito jovem, ela demonstrou coragem ao escrever anonimamente para a BBC relatando a realidade de sua região.</p>
+<p>Em 2012, aos 15 anos, sofreu um atentado — foi alvejada na cabeça por militantes talibãs dentro de um ônibus escolar. Sobreviveu e transformou sua dor em uma causa global. Tornou-se símbolo da luta pelo direito à educação e, em 2014, aos 17 anos, foi a pessoa mais jovem a receber o Prêmio Nobel da Paz.</p>
+<p><em>"Uma criança, um professor, uma caneta e um livro podem mudar o mundo."</em></p>
+
+<h3>Marie Curie (Polônia/França) — Cientista Pioneira</h3>
+<img src="marie curie.jpg" alt="Marie Curie" class="artigo-imagem">
+<p>Nascida na Polônia sob o nome Maria Skłodowska, mudou-se para Paris para estudar na Sorbonne, onde conheceu Pierre Curie. Juntos, descobriram dois elementos químicos: o polônio e o rádio.</p>
+<p>Marie foi a primeira mulher a ganhar um Prêmio Nobel e a única pessoa a receber dois Nobel em diferentes áreas — Física (1903) e Química (1911). Durante a Primeira Guerra Mundial, desenvolveu unidades móveis de radiografia para atender soldados feridos.</p>
+<p><em>"Nada na vida deve ser temido, somente compreendido."</em></p>
+
+<h3>Ada Lovelace (Reino Unido) — A Primeira Programadora</h3>
+<img src="ada lovelace.jpg" alt="Ada Lovelace" class="artigo-imagem">
+<p>Filha do poeta Lord Byron, Ada Lovelace foi educada em matemática e ciências, áreas incomuns para mulheres da época. Trabalhou ao lado de Charles Babbage, criador da "máquina analítica", e em suas anotações previu que os computadores poderiam processar não apenas números, mas também música e arte.</p>
+<p>Por isso, é considerada a primeira programadora da história.</p>
+<p><em>"A máquina analítica tece padrões análogos aos do sistema nervoso humano."</em></p>
+
+<h3>Wangari Maathai (Quênia) — Ambientalista e Líder Social</h3>
+<img src="wangari 2.jpg" alt="Wangari Maathai" class="artigo-imagem">
+<p>Primeira mulher africana a receber o Prêmio Nobel da Paz, Wangari nasceu no Quênia e formou-se em biologia — algo raríssimo para uma mulher africana nos anos 1960.</p>
+<p>Em 1977, fundou o Green Belt Movement, que já plantou mais de 50 milhões de árvores e empoderou milhares de mulheres por meio da sustentabilidade. Além do ativismo ambiental, lutou contra regimes autoritários e pela democracia em seu país.</p>
+<p><em>"Quando plantamos árvores, plantamos sementes de paz e esperança."</em></p>
+
+<h3>Bertha Lutz (Brasil) — Cientista, Feminista e Diplomata</h3>
+<img src="bertha lutz.jpg" alt="Bertha Lutz" class="artigo-imagem">
+<p>Filha do cientista Adolfo Lutz, Bertha foi uma das principais líderes do movimento feminista brasileiro. Formou-se em biologia na Sorbonne, em Paris, e quando voltou ao Brasil, fundou a Federação Brasileira pelo Progresso Feminino, que lutou pela conquista do voto feminino.</p>
+<p>Foi também uma das redatoras da Carta das Nações Unidas (ONU), em 1945, sendo uma das vozes que incluíram a igualdade de gênero entre os princípios da organização.</p>
+<p><em>"Recusar à mulher igualdade de direitos em virtude do sexo é denegar justiça à metade da população."</em></p>
+
+<h3>Maria da Penha (Brasil) — Ativista Contra a Violência Doméstica</h3>
+<img src="maria da penha.jpeg" alt="Maria da Penha" class="artigo-imagem">
+<p>Farmacêutica cearense, Maria da Penha sofreu anos de violência doméstica por parte do marido, que tentou assassiná-la duas vezes — uma das quais a deixou paraplégica.</p>
+<p>Sua luta judicial durou quase 20 anos, e culminou em uma vitória simbólica: a criação da Lei nº 11.340/2006, batizada em sua homenagem. A lei tornou-se um marco no combate à violência doméstica e é uma referência mundial.</p>
+<p><em>"Eu não queria ser mais uma estatística."</em></p>
+
+<h3>Carolina Maria de Jesus (Brasil) — Escritora e Voz das Favelas</h3>
+<img src="carolina maria.jpg" alt="Carolina Maria de Jesus" class="artigo-imagem">
+<p>Catadora de papel e moradora da favela do Canindé, em São Paulo, Carolina transformou sua vida ao escrever diários sobre a pobreza e o racismo que vivia.</p>
+<p>Seu livro <strong>Quarto de Despejo: Diário de uma Favelada</strong> (1960) tornou-se um fenômeno literário traduzido em mais de 13 idiomas. Foi uma das primeiras vozes negras e femininas a retratar a realidade urbana do Brasil com autenticidade.</p>
+<p><em>"O que eu sempre invejei nos livros foi o nome do autor."</em></p>
+
+<h3>Chiquinha Gonzaga (Brasil) — Compositora, Maestrina e Ativista Cultural</h3>
+<img src="chiquinha.jpg" alt="Chiquinha Gonzaga" class="artigo-imagem">
+<p>Primeira maestrina do Brasil e uma das maiores compositoras da música nacional, Chiquinha desafiou o machismo e o conservadorismo do século XIX.</p>
+<p>Autora de clássicos como "Ó Abre Alas", foi uma das pioneiras do carnaval e do teatro de revista. Além de sua genialidade musical, foi ativista abolicionista e republicana.</p>
+
+<h3>Nise da Silveira (Brasil) — Psiquiatra Transformadora</h3>
+<img src="nise da silveira.png" alt="Nise da Silveira" class="artigo-imagem">
+<p>Psiquiatra alagoana, Nise foi aluna de Carl Jung e revolucionou o tratamento psiquiátrico no Brasil. Recusou-se a usar métodos violentos como eletrochoques e confinamento, introduzindo a terapia ocupacional e a arte como forma de expressão do inconsciente.</p>
+<p>Fundou o Museu de Imagens do Inconsciente, no Rio de Janeiro, e influenciou gerações de psicólogos e artistas.</p>
+<p><em>"O que cura é a alegria, o que cura é a falta de preconceito."</em></p>
+
+<h3>Marta Vieira da Silva (Brasil) — Atleta e Referência Global no Futebol Feminino</h3>
+<img src="marta.png" alt="Marta" class="artigo-imagem">
+<p>Nascida em Dois Riachos (AL), Marta cresceu jogando futebol descalça em campos de terra. Venceu o preconceito e tornou-se a maior jogadora da história do futebol feminino, com 6 prêmios de Melhor do Mundo da FIFA.</p>
+<p>Atuou em clubes no Brasil, EUA e Suécia, e é a maior artilheira da história das Copas do Mundo (masculinas e femininas).</p>
+<p><em>"Acredite e confie em si mesmo."</em></p>
+
+<h3>Mensagem Final</h3>
+<p>Cada uma dessas mulheres mostra caminhos distintos de resistência: ciência, arte, política, esportes, saúde mental e ativismo. Algumas mudaram leis; outras, paradigmas; todas ampliaram possibilidades para as próximas gerações.</p>
+<p>Para meninas: cultivem curiosidade, coragem e solidariedade — ações pequenas e persistentes (estudar, organizar, falar, criar) acumulam mudança. Se Malala nos lembra que "uma caneta pode mudar o mundo", e Bertha Lutz que a igualdade precisa de articulação política, então o convite é claro: seja autora da sua própria história — o mundo precisa das suas ideias e da sua voz.</p>
+
+</div>
+</article>
+
+<!-- Artigo 5 - Primeira Menstruação -->
+<article class="artigo-card">
+<div class="artigo-header-card">
+<div class="autor-info">
+<h2>Equipe Blooming</h2>
+<p>Conteúdo Editorial</p>
+</div>
+</div>
+
+<h3 class="artigo-titulo">A Importância da Preparação Emocional das Meninas para a Primeira Menstruação</h3>
+
+<div class="artigo-conteudo">
+<p>A menstruação é um processo biológico natural que marca a maturidade dos órgãos reprodutores femininos. Entretanto, a menarca (primeira menstruação) é cercada de dúvidas, medo e vergonha, especialmente quando não há preparo emocional e informação suficiente ou adequada. Mais do que um evento físico, a primeira menstruação carrega significados sociais e psicológicos que podem influenciar a autoestima e a relação com o próprio corpo.</p>
+
+<p>Para discutir sobre a temática, é necessário entender primeiro o que é a menstruação e como ela funciona. A menstruação é o sangramento vaginal mensal que ocorre quando o corpo descarta o revestimento do útero porque não ocorreu a gravidez.</p>
+
+<p>O ciclo menstrual é um conjunto de alterações hormonais que se repetem a cada 28 dias, em média, embora a duração possa variar (entre 21 e 35 dias podem ser comuns em adolescentes e mulheres jovens). O sangue menstrual é composto de sangue e tecido do revestimento uterino; costuma durar de 2 a 7 dias.</p>
+
+<p>As fases se dividem em quatro: menstrual (dias em que há sangramento); folicular (o corpo prepara um óvulo e o endométrio engrossa); ovulação (liberação do óvulo) e fase lútea (depois da ovulação, prepara-se para a possível gravidez e, caso não haja, vem a menstruação).</p>
+
+<h3>Tipos de Absorventes e Produtos Menstruais</h3>
+<p>Existem diversos tipos de produtos disponíveis para lidar com a menstruação.</p>
+
+<h4>Absorventes Descartáveis (Externos)</h4>
+<img src="abs externo.jpg" alt="Absorvente externo" class="artigo-imagem">
+<p><strong>O que é:</strong> Um protetor fino e alongado, feito de material absorvente, com uma camada adesiva na parte de baixo para fixar na calcinha.</p>
+<p><strong>Como usar:</strong></p>
+<ul>
+<li>Retire a embalagem individual</li>
+<li>Retire a fita protetora do adesivo</li>
+<li>Cole o absorvente na parte central da calcinha (a parte adesiva fica voltada para baixo)</li>
+<li>Se tiver "abas", dobre-as por baixo da calcinha para fixar melhor</li>
+<li>Troque a cada 3 a 4 horas ou sempre que estiver úmido</li>
+</ul>
+<p><strong>Ideal para:</strong> Fluxo leve a intenso; uso diário na escola, em casa ou à noite.</p>
+
+<h4>Absorventes Internos (Tampões)</h4>
+<img src="abs interno.jpg" alt="Absorventes internos" class="artigo-imagem">
+<p><strong>O que é:</strong> Um pequeno cilindro de algodão que é inserido dentro da vagina, absorvendo o sangue ainda no interior do corpo.</p>
+<p><strong>Como usar:</strong></p>
+<ul>
+<li>Lave bem as mãos</li>
+<li>Escolha uma posição confortável (em pé, agachada ou com uma perna apoiada)</li>
+<li>Introduza o tampão delicadamente na vagina</li>
+<li>O cordão deve ficar do lado de fora para facilitar a remoção</li>
+<li>Troque a cada 4 a 6 horas</li>
+</ul>
+<p><strong>Atenção:</strong> Nunca dormir com o tampão e sempre trocar dentro do tempo indicado, para evitar infecções.</p>
+<p><strong>Ideal para:</strong> Prática de esportes, natação ou quem busca mais liberdade de movimento.</p>
+
+<h4>Coletor Menstrual (Menstrual Cup)</h4>
+<img src="copo menstrual.jpg" alt="Coletor menstrual" class="artigo-imagem">
+<p><strong>O que é:</strong> Um copinho de silicone flexível e reutilizável que coleta o sangue em vez de absorvê-lo.</p>
+<p><strong>Como usar:</strong></p>
+<ul>
+<li>Ferva o copinho por 5 minutos antes do primeiro uso (para esterilizar)</li>
+<li>Dobre-o (em formato de "C" ou "U") e introduza na vagina</li>
+<li>Ele se abrirá internamente, criando uma leve sucção que impede vazamentos</li>
+<li>Após 6 a 12 horas (dependendo do fluxo), retire-o puxando pela base e esvazie o conteúdo</li>
+<li>Lave com água e sabão neutro antes de recolocar</li>
+</ul>
+<p><strong>Ideal para:</strong> Quem busca economia, sustentabilidade e conforto; pode durar até 10 anos com bom cuidado.</p>
+
+<h4>Absorventes Reutilizáveis</h4>
+<img src="abs de pano.jpg" alt="Absorvente de pano" class="artigo-imagem">
+<p><strong>Absorvente de pano:</strong> Semelhante ao absorvente tradicional, mas feito de tecido lavável e com botões para prender na calcinha. Ideal para pessoas alérgicas a produtos descartáveis e quem prefere alternativas ecológicas.</p>
+
+<img src="calcinha abs.jpg" alt="Calcinha absorvente" class="artigo-imagem">
+<p><strong>Calcinha absorvente:</strong> Uma calcinha com camadas internas absorventes e impermeáveis, lavável e reutilizável. Ideal para fluxos leves a moderados, dias de início ou fim da menstruação, ou como reforço ao coletor.</p>
+
+<img src="abs diário.jpg" alt="Protetor diário" class="artigo-imagem">
+<p><strong>Protetores diários (liners):</strong> Um absorvente bem fino, usado para fluxo leve ou secreções diárias. Ideal para fim do ciclo ou dias com pequeno corrimento.</p>
+
+<h3>Dicas para Aliviar Cólicas e Desconfortos</h3>
+<img src="mulher com cólica.webp" alt="Mulher com cólica menstrual" class="artigo-imagem">
+<p>As cólicas menstruais são um sintoma comum, mas podem ser controladas com algumas medidas simples:</p>
+<ul>
+<li>Aplicar compressas mornas na região abdominal ajuda a relaxar os músculos e reduzir a dor</li>
+<li>A prática de atividades físicas leves e alongamentos contribuem para o bem-estar</li>
+<li>Alimentação equilibrada também ajuda</li>
+<li>Quando necessário, o uso de medicamentos analgésicos, sob orientação médica, pode ser indicado</li>
+</ul>
+<p>Além disso, o suporte emocional é essencial, pois o estresse e a ansiedade tendem a intensificar os sintomas.</p>
+
+<h3>Pobreza Menstrual e Desinformação</h3>
+<img src="pobreza menstrual .jpg" alt="Combate à pobreza menstrual" class="artigo-imagem">
+<p>Pobreza menstrual significa não ter acesso regular a produtos higiênicos, instalações sanitárias adequadas e informação. É um problema global que afeta a educação, saúde e dignidade.</p>
+
+<p>A pobreza menstrual é um problema de saúde pública que afeta milhões de meninas e mulheres que não têm acesso a produtos de higiene, banheiros adequados ou informações sobre o ciclo menstrual. Essa situação impacta diretamente na saúde, na educação e na dignidade feminina.</p>
+
+<p>No Brasil, estima-se que 1 em cada 4 meninas já tenha faltado à escola por não ter absorventes disponíveis. Esse é considerado um problema grave, associando-se a desigualdades raciais e socioeconômicas.</p>
+
+<h4>Programa Dignidade Menstrual</h4>
+<p>Com o objetivo de combater a pobreza menstrual, o Governo Federal criou o Programa Dignidade Menstrual, que garante a distribuição gratuita de absorventes higiênicos por meio da Farmácia Popular e unidades de saúde. O programa atende pessoas entre 10 e 49 anos em situação de vulnerabilidade, incluindo estudantes da rede pública e pessoas em situação de rua.</p>
+
+<h3>Por que Preparar Emocionalmente é Essencial</h3>
+<p>A preparação emocional para a primeira menstruação é fundamental para que as meninas vivenciem essa experiência de forma positiva e natural. Quando bem orientadas, elas entendem o que está acontecendo com seu corpo, evitam práticas inseguras e desenvolvem uma relação saudável com sua feminilidade.</p>
+
+<p>Preparar emocionalmente meninas para a primeira menstruação reduz danos imediatos e de longo prazo por vários caminhos:</p>
+
+<ul>
+<li><strong>Reduz choque, medo e estigma</strong> — saber o que é normal humaniza a experiência e evita reações de pânico ou vergonha</li>
+<li><strong>Melhora práticas de higiene e segurança</strong> — meninas informadas escolhem produtos adequados, trocam com frequência e evitam infecções</li>
+<li><strong>Reduz evasão escolar e isolamento</strong> — preparo e acesso diminuem faltas relacionadas ao período e aumentam participação social</li>
+<li><strong>Fortalece autoestima e saúde mental</strong> — entender o ciclo e normalizar sintomas dá sensação de controle e reduz ansiedade</li>
+<li><strong>Permite identificação precoce de problemas de saúde</strong> — meninas instruídas tendem a procurar ajuda antes, melhorando o prognóstico</li>
+</ul>
+
+<p>Em suma: preparar emocionalmente é tão prático quanto empoderador — une conhecimento biológico, habilidades práticas e suporte social para reduzir estigma, mitos, pobreza menstrual e suas consequências. Preparar meninas para sua menarca não é só uma questão de educar, é saúde e emergência para que nenhuma sofra com a desinformação ou com possíveis situações prejudiciais à própria saúde.</p>
+
+</div>
+</article>
+
+</div>
+<script src="script-main.js"></script>
+</body>
+</html>

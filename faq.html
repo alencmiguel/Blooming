@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — Perguntas Frequentes | Blooming</title>
+  <meta name="description" content="Perguntas frequentes sobre o Blooming, saúde feminina e como usar a plataforma.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles-main.css">
+  <style>
+    body {
+      padding-top: 140px;
+    }
+
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .faq-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--primary-purple);
+      margin-bottom: 20px;
+    }
+
+    .faq-header p {
+      font-size: 18px;
+      color: var(--text-light);
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 16px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      border: 2px solid var(--light-purple);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 100;
+    }
+
+    .faq-item:hover {
+      border-color: var(--primary-purple);
+      box-shadow: 0 8px 20px rgba(123, 63, 242, 0.15);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      user-select: none;
+    }
+
+    .faq-icon {
+      font-size: 24px;
+      color: var(--primary-purple);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      margin-top: 15px;
+    }
+
+    .faq-answer p {
+      margin-bottom: 10px;
+    }
+
+    .faq-answer strong {
+      color: var(--primary-purple);
+    }
+
+    .faq-category {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-purple);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--light-purple);
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader">
+    <div class="loader-flower"></div>
+  </div>
+
+  <!-- Purple Top Bar with Navigation -->
+  <div class="top-bar">
+    <div class="top-bar-pattern"></div>
+    <nav class="top-nav">
+      <div class="top-nav-links left">
+        <a href="index.html#sobre" class="top-nav-link">Sobre</a>
+        <a href="forum.html" class="top-nav-link">Fórum</a>
+      </div>
+      <div class="logo-center" onclick="window.location.href='index.html'"></div>
+      <div class="top-nav-links right">
+        <a href="faq.html" class="top-nav-link">FAQ</a>
+        <a href="artigos.html" class="top-nav-link">Artigos</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Floating Stars -->
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+  <div class="floating-star"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Background Decoration -->
+  <div class="bg-decoration">
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <circle cx="0" cy="-30" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="30" cy="0" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="0" cy="30" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-30" cy="0" r="15" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="21" cy="-21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="21" cy="21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-21" cy="21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="-21" cy="-21" r="12" fill="#7B3FF2" opacity="0.3"/>
+        <circle cx="0" cy="0" r="10" fill="#FFD700"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <ellipse cx="0" cy="-35" rx="12" ry="25" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="35" cy="0" rx="25" ry="12" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="0" cy="35" rx="12" ry="25" fill="#E8D5FF" opacity="0.4"/>
+        <ellipse cx="-35" cy="0" rx="25" ry="12" fill="#E8D5FF" opacity="0.4"/>
+        <circle cx="0" cy="0" r="12" fill="#7B3FF2" opacity="0.5"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <path d="M0,-40 Q-15,-35 -20,-20 Q-25,-5 -20,10 Q-15,25 0,30 Q15,25 20,10 Q25,-5 20,-20 Q15,-35 0,-40" fill="#F5EDFF" opacity="0.3"/>
+        <path d="M40,0 Q35,-15 20,-20 Q5,-25 -10,-20 Q-25,-15 -30,0 Q-25,15 -10,20 Q5,25 20,20 Q35,15 40,0" fill="#F5EDFF" opacity="0.3"/>
+        <circle cx="0" cy="0" r="8" fill="#5A2BC7" opacity="0.4"/>
+      </g>
+    </svg>
+    <svg class="flower-pattern" viewBox="0 0 200 200">
+      <g transform="translate(100, 100)">
+        <circle cx="0" cy="-30" r="18" fill="#7B3FF2" opacity="0.2"/>
+        <circle cx="26" cy="-15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="26" cy="15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="0" cy="30" r="18" fill="#7B3FF2" opacity="0.2"/>
+        <circle cx="-26" cy="15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="-26" cy="-15" r="15" fill="#E8D5FF" opacity="0.3"/>
+        <circle cx="0" cy="0" r="15" fill="#FFD700" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Main Content -->
+  <div class="faq-container">
+    <div class="faq-header">
+      <h1>❓ Perguntas Frequentes</h1>
+      <p>Tire suas dúvidas sobre o Blooming</p>
+    </div>
+
+    <div class="faq-category">💜 Sobre o Blooming</div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>O que é o Blooming?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>O Blooming é um espaço digital seguro e acolhedor para meninas e mulheres cis e trans, onde é possível compartilhar experiências, aprender sobre saúde, corpo e bem-estar, e se apoiar mutuamente em um ambiente anônimo e respeitoso.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>O Blooming é gratuito?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sim! O Blooming é 100% gratuito. Nossa missão é tornar informações de qualidade sobre saúde feminina acessíveis a todas.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>Preciso criar conta para usar?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Não! Você pode navegar pelo site, ler artigos e participar do fórum de forma completamente anônima. Seus dados ficam apenas no seu navegador.</p>
+      </div>
+    </div>
+
+    <div class="faq-category">🔒 Privacidade e Segurança</div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>Meus dados estão seguros?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sim! O Blooming não armazena dados pessoais em servidores. Tudo fica salvo apenas no seu navegador (localStorage), garantindo total privacidade e anonimato.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>Posso postar anonimamente?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sim! Todas as publicações no fórum podem ser feitas de forma anônima. Você escolhe se quer usar um apelido ou permanecer completamente anônima.</p>
+      </div>
+    </div>
+
+    <div class="faq-category">🩺 Sobre Saúde</div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>O Blooming substitui consulta médica?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p><strong>NÃO!</strong> O Blooming é um espaço de apoio e troca de experiências, mas não substitui acompanhamento médico profissional. Em caso de sintomas ou dúvidas sobre saúde, procure sempre um profissional qualificado.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>O que fazer em caso de emergência?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Em caso de emergência médica, ligue para o <strong>SAMU 192</strong> ou procure o pronto-socorro mais próximo. Para casos de violência, ligue <strong>180</strong> (Central de Atendimento à Mulher).</p>
+      </div>
+    </div>
+
+    <div class="faq-category">💬 Fórum e Comunidade</div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>Como funciona o fórum?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>No fórum você pode criar publicações sobre suas experiências, dúvidas e sentimentos. Outras mulheres podem comentar e compartilhar suas próprias vivências, criando uma rede de apoio mútuo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>Existem regras de convivência?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sim! O Blooming é um espaço de respeito mútuo. Não toleramos discriminação, preconceito, assédio ou qualquer forma de violência. Todas devem se sentir seguras para compartilhar suas experiências.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>Posso deletar minhas publicações?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sim! Como seus dados ficam apenas no seu navegador, você tem total controle sobre suas publicações e pode deletá-las a qualquer momento.</p>
+      </div>
+    </div>
+
+    <div class="faq-category">📚 Conteúdo</div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>De onde vêm os artigos científicos?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Todos os artigos são escritos por profissionais especializadas (psicólogas, médicas, etc.) e baseados em evidências científicas. Sempre citamos as fontes utilizadas.</p>
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">
+        <span>Posso sugerir temas para novos artigos?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Sim! Estamos sempre abertas a sugestões. Entre em contato conosco através do fórum ou redes sociais com suas ideias.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script-main.js"></script>
+</body>
+</html>
+
+
