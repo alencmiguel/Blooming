@@ -228,6 +228,243 @@
         gap: 15px;
       }
     }
+
+    /* Modal para nova publicação */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .modal-header h2 {
+      color: var(--primary-purple);
+      font-size: 24px;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: var(--primary-purple);
+      transform: rotate(90deg);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--text-dark);
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid var(--light-purple);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 4px rgba(123, 63, 242, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(123, 63, 242, 0.3);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(123, 63, 242, 0.4);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    /* Visualização de publicação individual */
+    .publicacao-detalhada {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      border: 2px solid var(--light-purple);
+    }
+
+    .publicacao-detalhada .publicacao-texto-completo {
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin: 25px 0;
+      white-space: pre-wrap;
+    }
+
+    .comentarios-section {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid var(--light-purple);
+    }
+
+    .comentarios-section h3 {
+      color: var(--primary-purple);
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .comentario {
+      background: var(--lighter-purple);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    .comentario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .comentario-autor {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comentario-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .comentario-texto {
+      color: var(--text-dark);
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .novo-comentario {
+      margin-top: 30px;
+    }
+
+    .btn-apoiar {
+      background: var(--lighter-purple);
+      color: var(--primary-purple);
+      border: 2px solid var(--primary-purple);
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-apoiar:hover {
+      background: var(--primary-purple);
+      color: white;
+    }
+
+    .btn-apoiar.apoiado {
+      background: var(--primary-purple);
+      color: white;
+    }
+
+    .btn-voltar {
+      background: white;
+      color: var(--primary-purple);
+      border: 2px solid var(--primary-purple);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .btn-voltar:hover {
+      background: var(--primary-purple);
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -326,7 +563,7 @@
     <div class="forum-header">
       <h1>💬 Fórum da Comunidade</h1>
       <p>Compartilhe suas experiências, dúvidas e apoie outras mulheres em um espaço seguro e acolhedor</p>
-      <button class="nova-publicacao-btn" onclick="alert('Funcionalidade em desenvolvimento! 🌸')">
+      <button class="nova-publicacao-btn" id="btnNovaPublicacao">
         + Nova Publicação
       </button>
     </div>
@@ -335,109 +572,436 @@
       <strong>⚠️ Lembre-se:</strong> Este é um espaço de apoio mútuo, não substitui consulta médica. Em emergências, ligue SAMU 192 ou Central da Mulher 180.
     </div>
 
-    <div class="categorias">
-      <button class="categoria-btn active">Todas</button>
-      <button class="categoria-btn">Menstruação</button>
-      <button class="categoria-btn">Saúde Hormonal</button>
-      <button class="categoria-btn">Bem-Estar</button>
-      <button class="categoria-btn">Relacionamentos</button>
-      <button class="categoria-btn">Sexualidade</button>
-      <button class="categoria-btn">Anticoncepcionais</button>
+    <div class="categorias" id="categorias">
+      <button class="categoria-btn active" data-categoria="Todas">Todas</button>
+      <button class="categoria-btn" data-categoria="Menstruação">Menstruação</button>
+      <button class="categoria-btn" data-categoria="Saúde Hormonal">Saúde Hormonal</button>
+      <button class="categoria-btn" data-categoria="Bem-Estar">Bem-Estar</button>
+      <button class="categoria-btn" data-categoria="Relacionamentos">Relacionamentos</button>
+      <button class="categoria-btn" data-categoria="Sexualidade">Sexualidade</button>
+      <button class="categoria-btn" data-categoria="Anticoncepcionais">Anticoncepcionais</button>
     </div>
 
-    <div class="publicacoes">
-      <!-- Exemplo de publicação 1 -->
-      <div class="publicacao-card">
-        <div class="publicacao-header">
-          <div class="publicacao-autor">
-            <div class="autor-avatar">🌸</div>
-            <div class="autor-info">
-              <h3>Anônima</h3>
-              <p>há 2 horas</p>
-            </div>
-          </div>
-          <span class="publicacao-categoria">Menstruação</span>
-        </div>
-        <h2 class="publicacao-titulo">Alguém mais tem cólicas intensas?</h2>
-        <p class="publicacao-preview">
-          Estou tendo cólicas muito fortes nos últimos meses e gostaria de saber se é normal e o que vocês fazem para aliviar...
-        </p>
-        <div class="publicacao-footer">
-          <div class="footer-stat">
-            💬 <span>23</span> respostas
-          </div>
-          <div class="footer-stat">
-            ❤️ <span>45</span> apoios
-          </div>
-        </div>
-      </div>
-
-      <!-- Exemplo de publicação 2 -->
-      <div class="publicacao-card">
-        <div class="publicacao-header">
-          <div class="publicacao-autor">
-            <div class="autor-avatar">💜</div>
-            <div class="autor-info">
-              <h3>Maria, 25 anos</h3>
-              <p>há 5 horas</p>
-            </div>
-          </div>
-          <span class="publicacao-categoria">Anticoncepcionais</span>
-        </div>
-        <h2 class="publicacao-titulo">Experiência com DIU de cobre</h2>
-        <p class="publicacao-preview">
-          Coloquei o DIU de cobre há 3 meses e queria compartilhar minha experiência com vocês. No início...
-        </p>
-        <div class="publicacao-footer">
-          <div class="footer-stat">
-            💬 <span>67</span> respostas
-          </div>
-          <div class="footer-stat">
-            ❤️ <span>89</span> apoios
-          </div>
-        </div>
-      </div>
-
-      <!-- Exemplo de publicação 3 -->
-      <div class="publicacao-card">
-        <div class="publicacao-header">
-          <div class="publicacao-autor">
-            <div class="autor-avatar">🌺</div>
-            <div class="autor-info">
-              <h3>Ana</h3>
-              <p>ontem</p>
-            </div>
-          </div>
-          <span class="publicacao-categoria">Bem-Estar</span>
-        </div>
-        <h2 class="publicacao-titulo">Como lidar com TPM severa?</h2>
-        <p class="publicacao-preview">
-          A cada ciclo minha TPM está piorando - mudanças de humor, ansiedade, irritabilidade. Alguém passa por isso?
-        </p>
-        <div class="publicacao-footer">
-          <div class="footer-stat">
-            💬 <span>34</span> respostas
-          </div>
-          <div class="footer-stat">
-            ❤️ <span>56</span> apoios
-          </div>
-        </div>
-      </div>
+    <div class="publicacoes" id="publicacoes">
+      <!-- Publicações serão carregadas aqui pelo JavaScript -->
     </div>
 
   </div>
 
+  <!-- Modal Nova Publicação -->
+  <div class="modal-overlay" id="modalNovaPublicacao">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>✨ Nova Publicação</h2>
+        <button class="close-modal" onclick="fecharModal()">&times;</button>
+      </div>
+      <form id="formNovaPublicacao" onsubmit="criarPublicacao(event)">
+        <div class="form-group">
+          <label>Nome (opcional)</label>
+          <input type="text" id="autorNome" placeholder="Deixe em branco para ser anônima">
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="checkAnonima" checked>
+          <label for="checkAnonima">Postar como anônima</label>
+        </div>
+
+        <div class="form-group">
+          <label>Categoria *</label>
+          <select id="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            <option value="Menstruação">Menstruação</option>
+            <option value="Saúde Hormonal">Saúde Hormonal</option>
+            <option value="Bem-Estar">Bem-Estar</option>
+            <option value="Relacionamentos">Relacionamentos</option>
+            <option value="Sexualidade">Sexualidade</option>
+            <option value="Anticoncepcionais">Anticoncepcionais</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Título *</label>
+          <input type="text" id="titulo" placeholder="Ex: Alguém mais tem cólicas intensas?" required maxlength="100">
+        </div>
+
+        <div class="form-group">
+          <label>Conteúdo *</label>
+          <textarea id="conteudo" placeholder="Compartilhe sua experiência, dúvida ou mensagem de apoio..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Publicar 🌸</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Visualizar Publicação -->
+  <div class="modal-overlay" id="modalVisualizarPublicacao">
+    <div class="modal-content">
+      <button class="btn-voltar" onclick="fecharModalVisualizacao()">← Voltar</button>
+      <div id="conteudoPublicacao"></div>
+    </div>
+  </div>
+
   <script src="script-main.js"></script>
   <script>
-    // Script básico para alternar categorias
+    // ========== SISTEMA DE FÓRUM COMPLETO ==========
+    
+    // Avatares disponíveis
+    const avatares = ['🌸', '💜', '🌺', '🌷', '🌹', '🌻', '🌼', '💐', '🦋', '✨', '💫', '⭐'];
+    
+    // Função para obter avatar aleatório
+    function getAvatarAleatorio() {
+      return avatares[Math.floor(Math.random() * avatares.length)];
+    }
+    
+    // Função para calcular tempo decorrido
+    function tempoDecorrido(timestamp) {
+      const agora = Date.now();
+      const diferenca = agora - timestamp;
+      
+      const minutos = Math.floor(diferenca / (1000 * 60));
+      const horas = Math.floor(diferenca / (1000 * 60 * 60));
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      
+      if (minutos < 1) return 'agora mesmo';
+      if (minutos < 60) return `há ${minutos} ${minutos === 1 ? 'minuto' : 'minutos'}`;
+      if (horas < 24) return `há ${horas} ${horas === 1 ? 'hora' : 'horas'}`;
+      if (dias === 1) return 'ontem';
+      if (dias < 30) return `há ${dias} dias`;
+      return new Date(timestamp).toLocaleDateString('pt-BR');
+    }
+    
+    // Inicializar publicações de exemplo (apenas na primeira vez)
+    function inicializarPublicacoesExemplo() {
+      const publicacoes = obterPublicacoes();
+      
+      if (publicacoes.length === 0) {
+        const exemplos = [
+          {
+            id: Date.now() + 1,
+            autor: 'Anônima',
+            avatar: '🌸',
+            categoria: 'Menstruação',
+            titulo: 'Alguém mais tem cólicas intensas?',
+            conteudo: 'Estou tendo cólicas muito fortes nos últimos meses e gostaria de saber se é normal e o que vocês fazem para aliviar. Já tentei bolsa de água quente e alguns chás, mas não está ajudando muito. Alguém tem alguma dica?',
+            timestamp: Date.now() - (2 * 60 * 60 * 1000), // 2 horas atrás
+            comentarios: [],
+            apoios: 45,
+            apoiadoPor: []
+          },
+          {
+            id: Date.now() + 2,
+            autor: 'Maria, 25 anos',
+            avatar: '💜',
+            categoria: 'Anticoncepcionais',
+            titulo: 'Experiência com DIU de cobre',
+            conteudo: 'Coloquei o DIU de cobre há 3 meses e queria compartilhar minha experiência com vocês. No início tive um pouco de cólica e o fluxo aumentou, mas agora está tudo bem. Estou muito feliz com a escolha! Alguém mais tem experiência com DIU?',
+            timestamp: Date.now() - (5 * 60 * 60 * 1000), // 5 horas atrás
+            comentarios: [],
+            apoios: 89,
+            apoiadoPor: []
+          },
+          {
+            id: Date.now() + 3,
+            autor: 'Ana',
+            avatar: '🌺',
+            categoria: 'Bem-Estar',
+            titulo: 'Como lidar com TPM severa?',
+            conteudo: 'A cada ciclo minha TPM está piorando - mudanças de humor, ansiedade, irritabilidade. Alguém passa por isso? O que vocês fazem para lidar melhor com esses sintomas? Estou pensando em procurar uma ginecologista, mas queria ouvir experiências de vocês também.',
+            timestamp: Date.now() - (24 * 60 * 60 * 1000), // 1 dia atrás
+            comentarios: [],
+            apoios: 56,
+            apoiadoPor: []
+          }
+        ];
+        
+        localStorage.setItem('blooming_publicacoes', JSON.stringify(exemplos));
+      }
+    }
+    
+    // Obter publicações do localStorage
+    function obterPublicacoes() {
+      const publicacoes = localStorage.getItem('blooming_publicacoes');
+      return publicacoes ? JSON.parse(publicacoes) : [];
+    }
+    
+    // Salvar publicações no localStorage
+    function salvarPublicacoes(publicacoes) {
+      localStorage.setItem('blooming_publicacoes', JSON.stringify(publicacoes));
+    }
+    
+    // Abrir modal de nova publicação
+    document.getElementById('btnNovaPublicacao').addEventListener('click', () => {
+      document.getElementById('modalNovaPublicacao').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Fechar modal
+    function fecharModal() {
+      document.getElementById('modalNovaPublicacao').classList.remove('active');
+      document.getElementById('formNovaPublicacao').reset();
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Gerenciar checkbox de anônima
+    document.getElementById('checkAnonima').addEventListener('change', function() {
+      const inputNome = document.getElementById('autorNome');
+      if (this.checked) {
+        inputNome.value = '';
+        inputNome.disabled = true;
+      } else {
+        inputNome.disabled = false;
+        inputNome.focus();
+      }
+    });
+    
+    // Criar nova publicação
+    function criarPublicacao(event) {
+      event.preventDefault();
+      
+      const anonima = document.getElementById('checkAnonima').checked;
+      const autor = anonima ? 'Anônima' : (document.getElementById('autorNome').value || 'Anônima');
+      const categoria = document.getElementById('categoria').value;
+      const titulo = document.getElementById('titulo').value;
+      const conteudo = document.getElementById('conteudo').value;
+      
+      const novaPublicacao = {
+        id: Date.now(),
+        autor: autor,
+        avatar: getAvatarAleatorio(),
+        categoria: categoria,
+        titulo: titulo,
+        conteudo: conteudo,
+        timestamp: Date.now(),
+        comentarios: [],
+        apoios: 0,
+        apoiadoPor: []
+      };
+      
+      const publicacoes = obterPublicacoes();
+      publicacoes.unshift(novaPublicacao); // Adiciona no início
+      salvarPublicacoes(publicacoes);
+      
+      fecharModal();
+      carregarPublicacoes();
+      
+      // Mostrar mensagem de sucesso
+      alert('✨ Publicação criada com sucesso! 🌸');
+    }
+    
+    // Carregar e exibir publicações
+    function carregarPublicacoes(categoriaFiltro = 'Todas') {
+      const publicacoes = obterPublicacoes();
+      const container = document.getElementById('publicacoes');
+      
+      // Filtrar por categoria
+      const publicacoesFiltradas = categoriaFiltro === 'Todas' 
+        ? publicacoes 
+        : publicacoes.filter(p => p.categoria === categoriaFiltro);
+      
+      if (publicacoesFiltradas.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">🌸</div>
+            <h2>Nenhuma publicação encontrada</h2>
+            <p>Seja a primeira a compartilhar nesta categoria!</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = publicacoesFiltradas.map(pub => `
+        <div class="publicacao-card" onclick="abrirPublicacao(${pub.id})">
+          <div class="publicacao-header">
+            <div class="publicacao-autor">
+              <div class="autor-avatar">${pub.avatar}</div>
+              <div class="autor-info">
+                <h3>${pub.autor}</h3>
+                <p>${tempoDecorrido(pub.timestamp)}</p>
+              </div>
+            </div>
+            <span class="publicacao-categoria">${pub.categoria}</span>
+          </div>
+          <h2 class="publicacao-titulo">${pub.titulo}</h2>
+          <p class="publicacao-preview">
+            ${pub.conteudo.substring(0, 150)}${pub.conteudo.length > 150 ? '...' : ''}
+          </p>
+          <div class="publicacao-footer">
+            <div class="footer-stat">
+              💬 <span>${pub.comentarios.length}</span> ${pub.comentarios.length === 1 ? 'resposta' : 'respostas'}
+            </div>
+            <div class="footer-stat">
+              ❤️ <span>${pub.apoios}</span> ${pub.apoios === 1 ? 'apoio' : 'apoios'}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    // Filtrar por categoria
     document.querySelectorAll('.categoria-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
+        carregarPublicacoes(this.dataset.categoria);
       });
+    });
+    
+    // Abrir publicação individual
+    function abrirPublicacao(id) {
+      const publicacoes = obterPublicacoes();
+      const pub = publicacoes.find(p => p.id === id);
+      
+      if (!pub) return;
+      
+      const usuarioId = getUsuarioId();
+      const jaApoiou = pub.apoiadoPor.includes(usuarioId);
+      
+      const html = `
+        <div class="publicacao-detalhada">
+          <div class="publicacao-header">
+            <div class="publicacao-autor">
+              <div class="autor-avatar" style="width: 60px; height: 60px; font-size: 28px;">${pub.avatar}</div>
+              <div class="autor-info">
+                <h3 style="font-size: 20px;">${pub.autor}</h3>
+                <p>${tempoDecorrido(pub.timestamp)}</p>
+              </div>
+            </div>
+            <span class="publicacao-categoria">${pub.categoria}</span>
+          </div>
+          <h2 class="publicacao-titulo" style="font-size: 26px; margin-top: 20px;">${pub.titulo}</h2>
+          <p class="publicacao-texto-completo">${pub.conteudo}</p>
+          
+          <div style="margin-top: 25px;">
+            <button class="btn-apoiar ${jaApoiou ? 'apoiado' : ''}" onclick="toggleApoio(${pub.id}, event)">
+              ❤️ ${jaApoiou ? 'Apoiado' : 'Apoiar'} (${pub.apoios})
+            </button>
+          </div>
+          
+          <div class="comentarios-section">
+            <h3>💬 Comentários (${pub.comentarios.length})</h3>
+            
+            <div class="novo-comentario">
+              <form onsubmit="adicionarComentario(event, ${pub.id})">
+                <div class="form-group">
+                  <textarea id="textoComentario" placeholder="Compartilhe seu apoio ou experiência..." required style="min-height: 100px;"></textarea>
+                </div>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="comentarioAnonimo" checked>
+                  <label for="comentarioAnonimo">Comentar como anônima</label>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Comentário 💜</button>
+              </form>
+            </div>
+            
+            <div id="listaComentarios" style="margin-top: 30px;">
+              ${pub.comentarios.length === 0 ? '<p style="text-align: center; color: var(--text-light); padding: 20px;">Seja a primeira a comentar! 🌸</p>' : ''}
+              ${pub.comentarios.map(com => `
+                <div class="comentario">
+                  <div class="comentario-header">
+                    <div class="comentario-autor">
+                      <div class="comentario-avatar">${com.avatar}</div>
+                      <div>
+                        <strong style="color: var(--primary-purple);">${com.autor}</strong>
+                        <p style="font-size: 14px; color: var(--text-light); margin: 0;">${tempoDecorrido(com.timestamp)}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="comentario-texto">${com.texto}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('conteudoPublicacao').innerHTML = html;
+      document.getElementById('modalVisualizarPublicacao').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Fechar modal de visualização
+    function fecharModalVisualizacao() {
+      document.getElementById('modalVisualizarPublicacao').classList.remove('active');
+      document.body.style.overflow = 'auto';
+      carregarPublicacoes(); // Atualizar lista
+    }
+    
+    // Obter ou criar ID do usuário
+    function getUsuarioId() {
+      let userId = localStorage.getItem('blooming_user_id');
+      if (!userId) {
+        userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('blooming_user_id', userId);
+      }
+      return userId;
+    }
+    
+    // Toggle apoio
+    function toggleApoio(publicacaoId, event) {
+      event.stopPropagation();
+      
+      const publicacoes = obterPublicacoes();
+      const pub = publicacoes.find(p => p.id === publicacaoId);
+      
+      if (!pub) return;
+      
+      const usuarioId = getUsuarioId();
+      const jaApoiou = pub.apoiadoPor.includes(usuarioId);
+      
+      if (jaApoiou) {
+        pub.apoios--;
+        pub.apoiadoPor = pub.apoiadoPor.filter(id => id !== usuarioId);
+      } else {
+        pub.apoios++;
+        pub.apoiadoPor.push(usuarioId);
+      }
+      
+      salvarPublicacoes(publicacoes);
+      abrirPublicacao(publicacaoId); // Recarregar
+    }
+    
+    // Adicionar comentário
+    function adicionarComentario(event, publicacaoId) {
+      event.preventDefault();
+      
+      const texto = document.getElementById('textoComentario').value;
+      const anonimo = document.getElementById('comentarioAnonimo').checked;
+      
+      const publicacoes = obterPublicacoes();
+      const pub = publicacoes.find(p => p.id === publicacaoId);
+      
+      if (!pub) return;
+      
+      const novoComentario = {
+        id: Date.now(),
+        autor: anonimo ? 'Anônima' : 'Usuária',
+        avatar: getAvatarAleatorio(),
+        texto: texto,
+        timestamp: Date.now()
+      };
+      
+      pub.comentarios.push(novoComentario);
+      salvarPublicacoes(publicacoes);
+      
+      abrirPublicacao(publicacaoId); // Recarregar
+    }
+    
+    // Fechar modais ao clicar fora
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+    
+    // Inicializar ao carregar página
+    document.addEventListener('DOMContentLoaded', () => {
+      inicializarPublicacoesExemplo();
+      carregarPublicacoes();
     });
   </script>
 </body>
 </html>
-
-
